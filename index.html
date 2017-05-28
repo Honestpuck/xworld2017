@@ -66,6 +66,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <section class="slide level3">
 
+<h4 id="charming-the-snake">Charming The Snake</h4>
+<h4 id="python-for-system-admins">Python For System Admins</h4>
+<h5 id="tony-williams">Tony Williams</h5>
+<h6 id="system-engineer">System Engineer</h6>
+</section>
+<section id="section" class="slide level3">
+<h3></h3>
 <h4 id="what-we-will-talk-about">What We Will Talk About</h4>
 <ul>
 <li>A short introduction to Python</li>
@@ -79,10 +86,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>More Python</li>
 <li>Talking to JSS</li>
 </ul></li>
-<li>IPython notebooks</li>
 </ul>
 </section>
-<section id="section" class="slide level3">
+<section id="section-1" class="slide level3">
 <h3></h3>
 <h4 id="python-as-a-calculator">Python as a calculator</h4>
 <p>The interpreter acts as a simple calculator: you can type an expression at it and it will write the value. Expression syntax is straightforward: the operators +, -, * and / work just like in most other languages (for example, Pascal or C); parentheses (()) can be used for grouping. For example:</p>
@@ -94,8 +100,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fl">5.0</span>
 <span class="op">&gt;&gt;&gt;</span> <span class="dv">8</span> <span class="op">/</span> <span class="fl">5.0</span>
 <span class="fl">1.6</span></code></pre></div>
+<aside class="notes">
+<p>Notice that numbers are not enclosed by quotes or anything else. There are two types of numbers, integers and floating point. If you use a floating point number in a calculation the result will be a floating point number.</p>
+</aside>
 </section>
-<section id="section-1" class="slide level3">
+<section id="section-2" class="slide level3">
 <h3></h3>
 <p>The equal sign (=) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive prompt:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> width <span class="op">=</span> <span class="dv">20</span>
@@ -109,15 +118,6 @@ Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 NameError: name &#39;n&#39; is not defined</code></pre>
 </section>
-<section id="section-2" class="slide level3">
-<h3></h3>
-<p>There is full support for floating point; operators with mixed type operands convert the integer operand to floating point:</p>
-<pre><code>&gt;&gt;&gt;
-&gt;&gt;&gt; 3 * 3.75 / 1.5
-7.5
-&gt;&gt;&gt; 7.0 / 2
-3.5</code></pre>
-</section>
 <section id="section-3" class="slide level3">
 <h3></h3>
 <p>In interactive mode, the last printed expression is assigned to the variable _. This means that when you are using Python as a desk calculator, it is somewhat easier to continue calculations, for example:</p>
@@ -127,14 +127,13 @@ NameError: name &#39;n&#39; is not defined</code></pre>
 &gt;&gt;&gt; price * tax
 12.5625
 &gt;&gt;&gt; price + _
-113.0625
-&gt;&gt;&gt; round(_, 2)
-113.06</code></pre>
+113.0625</code></pre>
 </section>
 <section id="section-4" class="slide level3">
 <h3></h3>
 <h4 id="strings">Strings</h4>
-<p>Besides numbers, Python can also manipulate strings, which can be expressed in several ways. They can be enclosed in single quotes ('...') or double quotes (&quot;...&quot;) with the same result. <code>\</code> can be used to escape quotes:</p>
+<p>Besides numbers, Python can also manipulate strings, which can be expressed in several ways. They can be enclosed in single quotes ('...') or double quotes (&quot;...&quot;) with the same result.</p>
+<p><code>\</code> can be used to escape quotes:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;spam eggs&#39;</span>  <span class="co"># single quotes</span>
 <span class="co">&#39;spam eggs&#39;</span>
 <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;doesn</span><span class="ch">\&#39;</span><span class="st">t&#39;</span>  <span class="co"># use \&#39; to escape the single quote...</span>
@@ -146,12 +145,13 @@ NameError: name &#39;n&#39; is not defined</code></pre>
 <span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">Yes,</span><span class="ch">\&quot;</span><span class="st"> he said.&quot;</span>
 <span class="co">&#39;&quot;Yes,&quot; he said.&#39;</span>
 <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;&quot;Isn</span><span class="ch">\&#39;</span><span class="st">t,&quot; she said.&#39;</span>
-<span class="co">&#39;&quot;Isn\&#39;t,&quot; she said.&#39;</span></code></pre></div>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span> _
+<span class="co">&#39;&quot;Isn&#39;</span>t,<span class="st">&quot; she said.&#39;</span></code></pre></div>
 </section>
 <section id="section-5" class="slide level3">
 <h3></h3>
-<h4 id="literals">Literals</h4>
-<p>String literals can span multiple lines. One way is using triple-quotes: &quot;&quot;&quot;...&quot;&quot;&quot; or '''...'''. End of lines are automatically included in the string, but it’s possible to prevent this by adding a  at the end of the line. The following example:</p>
+<h4 id="triple-quotes">Triple quotes</h4>
+<p>String literals can span multiple lines and include white space. One way is using triple-quotes: &quot;&quot;&quot;...&quot;&quot;&quot; or '''...'''. End of lines are automatically included in the string, but it’s possible to prevent this by adding a  at the end of the line. The following example:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> (<span class="st">&quot;&quot;&quot;\</span>
 <span class="st">Usage: thingy [OPTIONS]</span>
 <span class="st">     -h                        Display this usage message</span>
@@ -161,6 +161,9 @@ NameError: name &#39;n&#39; is not defined</code></pre>
 <pre><code>Usage: thingy [OPTIONS]
      -h                        Display this usage message
      -H hostname               Hostname to connect to</code></pre>
+<aside class="notes">
+<p>You will often see string literals enclosed in triple quotes at the top of function definitions. These are called &quot;docstrings&quot; and are used to build the help system in Python.</p>
+</aside>
 </section>
 <section id="section-6" class="slide level3">
 <h3></h3>
@@ -202,6 +205,17 @@ NameError: name &#39;n&#39; is not defined</code></pre>
 </section>
 <section id="section-9" class="slide level3">
 <h3></h3>
+<h4 id="booleans">Booleans</h4>
+</section>
+<section id="section-10" class="slide level3">
+<h3></h3>
+<h4 id="moving-on-to-ipython">Moving On To IPython</h4>
+<aside class="notes">
+<p>At this point let's move on to a better Python interpreter - IPython.</p>
+</aside>
+</section>
+<section id="section-11" class="slide level3">
+<h3></h3>
 <h4 id="starting-ipython">Starting IPython</h4>
 <table>
 <thead>
@@ -234,7 +248,7 @@ NameError: name &#39;n&#39; is not defined</code></pre>
 </tbody>
 </table>
 </section>
-<section id="section-10" class="slide level3">
+<section id="section-12" class="slide level3">
 <h3></h3>
 <p>The four most helpful commands, as well as their brief description, are shown to you in a banner, every time you start IPython:</p>
 <table>
@@ -264,32 +278,83 @@ NameError: name &#39;n&#39; is not defined</code></pre>
 </tbody>
 </table>
 </section>
-<section id="section-11" class="slide level3">
+<section id="section-13" class="slide level3">
 <h3></h3>
 <h4 id="lists">Lists</h4>
+<ul>
+<li>Surrounded by &quot;<a href="#/section-40"></a>&quot;</li>
+<li>Ordered</li>
+<li>Indexed at 0</li>
+<li>Can contain any type or mixed types
+<aside class="notes">
+<p>The next type we will look at it is lists. Lists are surrounded by square brackets. The order of a list always stays the same. The first item is item 0. They can contain any type, indeed they can contain a mix of types, including a list.</p>
+</aside></li>
+</ul>
+</section>
+<section id="section-14" class="slide level3">
+<h3></h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">lst <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="dv">22</span>, <span class="st">&quot;pear&quot;</span>]
+lst[<span class="dv">0</span>]
 lst[<span class="dv">2</span>]
 lst[<span class="dv">3</span>] <span class="op">+</span> <span class="dv">7</span></code></pre></div>
+<aside class="notes">
+<p>Let's look at some operations on lists.</p>
+</aside>
 <h4 id="slicing-lists">Slicing Lists</h4>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">lst[<span class="dv">1</span>:<span class="dv">3</span>]
 lst[:<span class="dv">2</span>]
-lst[<span class="dv">3</span>:]</code></pre></div>
+lst[<span class="dv">3</span>:]
+lst[:<span class="op">-</span><span class="dv">2</span>]
+lst[<span class="op">-</span><span class="dv">3</span>:]</code></pre></div>
+<aside class="notes">
+<p>You can slice a list by specifying the start and end of the slice. Just the end implies a start of 1 and just the first implies from there to the end of the list. You can specify a negative number to count from the end back.</p>
+</aside>
 </section>
-<section id="section-12" class="slide level3">
+<section id="section-15" class="slide level3">
 <h3></h3>
 <h4 id="dictionaries">Dictionaries</h4>
-<p>Dictionaries are a lookup table with a key and a value.</p>
+<ul>
+<li>A key and a value (think of a plist)</li>
+<li>Surrounded by &quot;{}&quot;</li>
+<li>Unordered</li>
+<li>keys
+<ul>
+<li>Case sensitive</li>
+<li>Unique</li>
+<li>New value overwrites</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Our final type are dictionaries. These are made up of a key and a value, similar to a plist. They don't have a fixed order so you may find that when you print one it comes out different to how you defined it.</p>
+</aside>
+</section>
+<section id="section-16" class="slide level3">
+<h3></h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">dict</span> <span class="op">=</span> {<span class="st">&#39;x&#39;</span>: <span class="dv">12</span>, <span class="st">&#39;y&#39;</span>: <span class="dv">22</span>, <span class="st">&#39;z&#39;</span>: <span class="dv">2</span>}
 <span class="bu">dict</span>
 <span class="bu">dict</span>[<span class="st">&#39;x&#39;</span>]</code></pre></div>
+</section>
+<section id="section-17" class="slide level3">
+<h3></h3>
+<h4 id="flow-control">Flow Control</h4>
+<aside class="notes">
+<p>Now we can have a look at how we control our code.</p>
+</aside>
 <h4 id="decisions-decisions">Decisions, Decisions</h4>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">num <span class="op">=</span> <span class="dv">3</span>
 <span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">2</span>:
     <span class="bu">print</span> <span class="st">&quot;Big&quot;</span>
 <span class="cf">else</span>:
     <span class="bu">print</span> <span class="st">&quot;Small&quot;</span></code></pre></div>
+<aside class="notes">
+<p>Just as you might have seen in <code>bash</code> Python has an 'if' statement. Now indentation is meaningful in Python, see the indentation rather than the <code>do</code> and <code>done</code> you would see in Bash. Also notice the colon character.</p>
+</aside>
 </section>
-<section id="section-13" class="slide level3">
+<section id="section-18" class="slide level3">
+<h3></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</section>
+<section id="section-19" class="slide level3">
 <h3></h3>
 <h4 id="loops">Loops</h4>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tm <span class="op">=</span> <span class="dv">1</span>
@@ -299,7 +364,7 @@ lst[<span class="dv">3</span>:]</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>):
     <span class="bu">print</span> x</code></pre></div>
 </section>
-<section id="section-14" class="slide level3">
+<section id="section-20" class="slide level3">
 <h3></h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">collection <span class="op">=</span> [<span class="st">&#39;hey&#39;</span>, <span class="dv">5</span>, <span class="st">&#39;d&#39;</span>]
 <span class="cf">for</span> x <span class="kw">in</span> collection:
@@ -309,14 +374,14 @@ lst[<span class="dv">3</span>:]</code></pre></div>
     <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">list</span>:
         <span class="bu">print</span> x</code></pre></div>
 </section>
-<section id="section-15" class="slide level3">
+<section id="section-21" class="slide level3">
 <h3></h3>
 <h4 id="tab-completion">Tab completion</h4>
 <p>Tab completion, especially for attributes, is a convenient way to explore the structure of any object you’re dealing with. Simply type <code>object_name.&lt;TAB&gt;</code> to view the object’s attributes. Besides Python objects and keywords, tab completion also works on file and directory names.</p>
 <h4 id="exploring-your-objects">Exploring your objects</h4>
 <p>Typing <code>object_name?</code> will print all sorts of details about any object, including docstrings, function definition lines (for call arguments) and constructor details for classes. To get specific information on an object, you can use the magic commands %pdoc, %pdef, %psource and %pfile</p>
 </section>
-<section id="section-16" class="slide level3">
+<section id="section-22" class="slide level3">
 <h3></h3>
 <h4 id="magic-functions">Magic functions</h4>
 <p>IPython has a set of predefined ‘magic functions’ that you can call with a command line style syntax. There are two kinds of magics, line-oriented and cell-oriented. Line magics are prefixed with the % character and work much like OS command-line calls: they get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Cell magics are prefixed with a double %%, and they are functions that get as an argument not only the rest of the line, but also the lines below it in a separate argument.</p>
@@ -329,7 +394,7 @@ In [2]: %%timeit x = range(10000)
    ...:
 1000 loops, best of 3: 223 us per loop</code></pre>
 </section>
-<section id="section-17" class="slide level3">
+<section id="section-23" class="slide level3">
 <h3></h3>
 <p><strong>The builtin magics include:</strong></p>
 <ul>
@@ -342,17 +407,17 @@ In [2]: %%timeit x = range(10000)
 <p>You can toggle this behavior by running the %automagic magic. Cell magics must always have the %% prefix.</p>
 <p>A more detailed explanation of the magic system can be obtained by calling %magic, and for more details on any magic function, call %somemagic? to read its docstring. To see all the available magic functions, call %lsmagic.</p>
 </section>
-<section id="section-18" class="slide level3">
+<section id="section-24" class="slide level3">
 <h3></h3>
 <h4 id="history">History</h4>
-<p>IPython stores both the commands you enter, and the results it produces. You can easily go through previous commands with the up- and down-arrow keys, or access your history in more sophisticated ways.</p>
+<p>IPython stores the commands you enter and the results. You can go through previous commands with the up- and down-arrow keys, or access your history in more sophisticated ways.</p>
 <p>Input and output history are kept in variables called In and Out, keyed by the prompt numbers, e.g. In[4]. The last three objects in output history are also kept in variables named <code>_</code>, <code>__</code> and <code>___</code>.</p>
 <p>You can use the %history magic function to examine past input and output. Input history from previous sessions is saved in a database, and IPython can be configured to save output history.</p>
 <p>Several other magic functions can use your input history, including %edit, %rerun, %recall, %macro, %save and %pastebin. You can use a standard format to refer to lines:</p>
 <pre><code>%pastebin 3 18-20 ~1/1-5</code></pre>
 <p>This will take line 3 and lines 18 to 20 from the current session, and lines 1-5 from the previous session.</p>
 </section>
-<section id="section-19" class="slide level3">
+<section id="section-25" class="slide level3">
 <h3></h3>
 <h4 id="explore-the-magic-functions">Explore The Magic Functions</h4>
 <h5 id="bookmark">%bookmark</h5>
@@ -389,7 +454,7 @@ In [2]: %%timeit x = range(10000)
 </table>
 <p>Then <code>cd -b &lt;name&gt;</code> or just <code>cd &lt;name&gt;</code> if there is no directory called <name> AND there is such a bookmark defined. (The latter is why I usually use two or three letter bookmark names.)</p>
 </section>
-<section id="section-20" class="slide level3">
+<section id="section-26" class="slide level3">
 <h3></h3>
 <h5 id="cd">%cd</h5>
 <p>The <code>cd</code> magic is necessary (and nicely enhanced) as the system <code>cd</code> won't work. It keeps a history of the directories visited.</p>
@@ -429,7 +494,7 @@ In [2]: %%timeit x = range(10000)
 </table>
 <p><code>%dhist</code> prints the directory history and <code>%dhist &lt;n&gt;</code> prints the last <code>&lt;n&gt;</code> entries.</p>
 </section>
-<section id="section-21" class="slide level3">
+<section id="section-27" class="slide level3">
 <h3></h3>
 <h5 id="the-directory-stack">The directory stack</h5>
 <p>As well as a history of directories IPython also has a directory stack.</p>
@@ -459,6 +524,9 @@ In [2]: %%timeit x = range(10000)
 </tr>
 </tbody>
 </table>
+</section>
+<section id="section-28" class="slide level3">
+<h3></h3>
 <h5 id="edit">%edit</h5>
 <p><code>edit</code> opens things in the editor you have defined in your $EDITOR environment variable. ###</p>
 <h4 id="prompt-customization">Prompt customization</h4>
@@ -467,6 +535,9 @@ In [2]: %%timeit x = range(10000)
 [{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
 %config PromptManager.in2_template = r&#39;{color.Green}|{color.LightGreen}\D{color.Green}&gt; &#39;
 %config PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
+</section>
+<section id="section-29" class="slide level3">
+<h3></h3>
 <p>You can change the prompt configuration to your liking permanently by editing ipython_config.py:</p>
 <pre><code>c.PromptManager.in_template = r&#39;{color.LightGreen}\u@\h{color.LightBlue}\
 [{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
@@ -474,7 +545,7 @@ c.PromptManager.in2_template = r&#39;{color.Green}|{color.LightGreen}\D{color.Gr
 c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
 <p>Read more about the configuration system for details on how to find ipython_config.py.</p>
 </section>
-<section id="section-22" class="slide level3">
+<section id="section-30" class="slide level3">
 <h3></h3>
 <h4 id="string-lists">String lists</h4>
 <p>String lists (IPython.utils.text.SList) are handy way to process output from system commands. They are produced by var = !cmd syntax.</p>
@@ -490,7 +561,7 @@ c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
  &#39;-rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py&#39;,
  &#39;-rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc&#39;]</code></pre>
 </section>
-<section id="section-23" class="slide level3">
+<section id="section-31" class="slide level3">
 <h3></h3>
 <p>Now, let’s take a look at the contents of ‘lines’ (the first number is the list element number):</p>
 <pre><code>[Q:doc/examples]|3&gt; lines
@@ -505,7 +576,7 @@ c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
 6: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
 7: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc</code></pre>
 </section>
-<section id="section-24" class="slide level3">
+<section id="section-32" class="slide level3">
 <h3></h3>
 <p>Now, let’s filter out the ‘embed’ lines:</p>
 <pre><code>[Q:doc/examples]|4&gt; l2 = lines.grep(&#39;embed&#39;,prune=1)
@@ -519,7 +590,7 @@ c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
 4: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
 5: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc</code></pre>
 </section>
-<section id="section-25" class="slide level3">
+<section id="section-33" class="slide level3">
 <h3></h3>
 <p>Now, we want strings having just file names and permissions:</p>
 <pre><code>[Q:doc/examples]|6&gt; l2.fields(8,0)
@@ -533,7 +604,7 @@ c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
 5: seteditor.pyc -rwxrwxrwx</code></pre>
 <p>Note how the line with ‘total’ does not raise IndexError.</p>
 </section>
-<section id="section-26" class="slide level3">
+<section id="section-34" class="slide level3">
 <h3></h3>
 <p>If you want to split these (yielding lists), call fields() without arguments:</p>
 <pre><code>[Q:doc/examples]|7&gt; _.fields()
@@ -545,7 +616,7 @@ c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
  [&#39;seteditor.py&#39;, &#39;-rwxrwxrwx&#39;],
  [&#39;seteditor.pyc&#39;, &#39;-rwxrwxrwx&#39;]]</code></pre>
 </section>
-<section id="section-27" class="slide level3">
+<section id="section-35" class="slide level3">
 <h3></h3>
 <p>If you want to pass these separated with spaces to a command (typical for lists if files), use the .s property:</p>
 <pre><code>[Q:doc/examples]|13&gt; files = l2.fields(8).s
@@ -556,7 +627,7 @@ example-demo.py  example-gnuplot.py  extension.py  seteditor.py  seteditor.pyc</
 <p>SLists are inherited from normal python lists, so every list method is available:</p>
 <pre><code>[Q:doc/examples]|21&gt; lines.append(&#39;hey&#39;)</code></pre>
 </section>
-<section id="section-28" class="slide level3">
+<section id="section-36" class="slide level3">
 <h3></h3>
 <h4 id="more-with-lists">More with lists</h4>
 <p>Let's start with a list of files.</p>
@@ -568,7 +639,7 @@ utils.n
 utils.s</code></pre>
 <p>What's the problem with <code>utils.s</code>?</p>
 </section>
-<section id="section-29" class="slide level3">
+<section id="section-37" class="slide level3">
 <h3></h3>
 <h4 id="fixing-the-spaces">Fixing the spaces</h4>
 <p>We're going to use <code>map</code></p>
@@ -582,7 +653,9 @@ them</code></pre></div>
 <p>List comprehensions are a neat trick</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">u <span class="op">=</span> [<span class="st">&#39;&quot;&#39;</span> <span class="op">+</span> i <span class="op">+</span><span class="st">&#39;&quot;&#39;</span> <span class="cf">for</span> i <span class="kw">in</span> utils]
 u</code></pre></div>
-<h4 id="section-30"></h4>
+</section>
+<section id="section-38" class="slide level3">
+<h3></h3>
 <h4 id="talking-to-jss">Talking To JSS</h4>
 <p>First we get our JSS object</p>
 <pre><code>import jss
@@ -596,7 +669,7 @@ j = jss.JSS(jss_prefs)</code></pre>
 for i in computers:
     print &quot;id:&quot;+str(i.id)+&quot; name:&quot;+i.name</code></pre>
 </section>
-<section id="section-31" class="slide level3">
+<section id="section-39" class="slide level3">
 <h3></h3>
 <p>Now get the record of one computer. This will get <strong>all</strong> the record.</p>
 <pre><code>example = j.Computer(193)
@@ -607,7 +680,7 @@ example</code></pre>
 <pre><code>example.serial_number
 example.mac_addresses</code></pre>
 </section>
-<section id="section-32" class="slide level3">
+<section id="section-40" class="slide level3">
 <h3></h3>
 <p>Other information requires some XML work. XML is a tree of nodes and we have to work with those nodes.</p>
 <p>Let's get a list of installed applications. <code>findall()</code> will return a list of nodes that match our search string. <code>find()</code> returns a single child node that matches.</p>

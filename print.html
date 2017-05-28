@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level3">
+
+<h4 id="charming-the-snake">Charming The Snake</h4>
+<h4 id="python-for-system-admins">Python For System Admins</h4>
+<h5 id="tony-williams">Tony Williams</h5>
+<h6 id="system-engineer">System Engineer</h6>
+</section>
+<section id="section" class="slide level3">
+<h3></h3>
+<h4 id="what-we-will-talk-about">What We Will Talk About</h4>
+<ul>
+<li>A short introduction to Python</li>
+<li>IPython
+<ul>
+<li>IPython as shell</li>
+<li>IPython for coding</li>
+</ul></li>
+<li>System Administration
+<ul>
+<li>More Python</li>
+<li>Talking to JSS</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-1" class="slide level3">
+<h3></h3>
+<h4 id="python-as-a-calculator">Python as a calculator</h4>
+<p>The interpreter acts as a simple calculator: you can type an expression at it and it will write the value. Expression syntax is straightforward: the operators +, -, * and / work just like in most other languages (for example, Pascal or C); parentheses (()) can be used for grouping. For example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>
+<span class="dv">4</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">50</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span><span class="dv">6</span>
+<span class="dv">20</span>
+<span class="op">&gt;&gt;&gt;</span> (<span class="dv">50</span> <span class="op">-</span> <span class="fl">5.0</span><span class="op">*</span><span class="dv">6</span>) <span class="op">/</span> <span class="dv">4</span>
+<span class="fl">5.0</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">8</span> <span class="op">/</span> <span class="fl">5.0</span>
+<span class="fl">1.6</span></code></pre></div>
+<aside class="notes">
+<p>Notice that numbers are not enclosed by quotes or anything else. There are two types of numbers, integers and floating point. If you use a floating point number in a calculation the result will be a floating point number.</p>
+</aside>
+</section>
+<section id="section-2" class="slide level3">
+<h3></h3>
+<p>The equal sign (=) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive prompt:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> width <span class="op">=</span> <span class="dv">20</span>
+<span class="op">&gt;&gt;&gt;</span> height <span class="op">=</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">9</span>
+<span class="op">&gt;&gt;&gt;</span> width <span class="op">*</span> height
+<span class="dv">900</span></code></pre></div>
+<p>If a variable is not “defined” (assigned a value), trying to use it will give you an error:</p>
+<pre><code>&gt;&gt;&gt;
+&gt;&gt;&gt; n  # try to access an undefined variable
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name &#39;n&#39; is not defined</code></pre>
+</section>
+<section id="section-3" class="slide level3">
+<h3></h3>
+<p>In interactive mode, the last printed expression is assigned to the variable _. This means that when you are using Python as a desk calculator, it is somewhat easier to continue calculations, for example:</p>
+<pre><code>&gt;&gt;&gt;
+&gt;&gt;&gt; tax = 12.5 / 100
+&gt;&gt;&gt; price = 100.50
+&gt;&gt;&gt; price * tax
+12.5625
+&gt;&gt;&gt; price + _
+113.0625</code></pre>
+</section>
+<section id="section-4" class="slide level3">
+<h3></h3>
+<h4 id="strings">Strings</h4>
+<p>Besides numbers, Python can also manipulate strings, which can be expressed in several ways. They can be enclosed in single quotes ('...') or double quotes (&quot;...&quot;) with the same result.</p>
+<p><code>\</code> can be used to escape quotes:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;spam eggs&#39;</span>  <span class="co"># single quotes</span>
+<span class="co">&#39;spam eggs&#39;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;doesn</span><span class="ch">\&#39;</span><span class="st">t&#39;</span>  <span class="co"># use \&#39; to escape the single quote...</span>
+<span class="co">&quot;doesn&#39;t&quot;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;doesn&#39;t&quot;</span>  <span class="co"># ...or use double quotes instead</span>
+<span class="co">&quot;doesn&#39;t&quot;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;&quot;Yes,&quot; he said.&#39;</span>
+<span class="co">&#39;&quot;Yes,&quot; he said.&#39;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">Yes,</span><span class="ch">\&quot;</span><span class="st"> he said.&quot;</span>
+<span class="co">&#39;&quot;Yes,&quot; he said.&#39;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;&quot;Isn</span><span class="ch">\&#39;</span><span class="st">t,&quot; she said.&#39;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span> _
+<span class="co">&#39;&quot;Isn&#39;</span>t,<span class="st">&quot; she said.&#39;</span></code></pre></div>
+</section>
+<section id="section-5" class="slide level3">
+<h3></h3>
+<h4 id="triple-quotes">Triple quotes</h4>
+<p>String literals can span multiple lines and include white space. One way is using triple-quotes: &quot;&quot;&quot;...&quot;&quot;&quot; or '''...'''. End of lines are automatically included in the string, but it’s possible to prevent this by adding a  at the end of the line. The following example:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span> (<span class="st">&quot;&quot;&quot;\</span>
+<span class="st">Usage: thingy [OPTIONS]</span>
+<span class="st">     -h                        Display this usage message</span>
+<span class="st">     -H hostname               Hostname to connect to</span>
+<span class="st">&quot;&quot;&quot;</span>)</code></pre></div>
+<p>produces the following output (note that the initial newline is not included):</p>
+<pre><code>Usage: thingy [OPTIONS]
+     -h                        Display this usage message
+     -H hostname               Hostname to connect to</code></pre>
+<aside class="notes">
+<p>You will often see string literals enclosed in triple quotes at the top of function definitions. These are called &quot;docstrings&quot; and are used to build the help system in Python.</p>
+</aside>
+</section>
+<section id="section-6" class="slide level3">
+<h3></h3>
+<h4 id="concatenation">Concatenation</h4>
+<p>Strings can be concatenated (glued together) with the + operator, and repeated with *:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="co"># 3 times &#39;un&#39;, followed by &#39;ium&#39;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="dv">3</span> <span class="op">*</span> <span class="st">&#39;un&#39;</span> <span class="op">+</span> <span class="st">&#39;ium&#39;</span>
+<span class="co">&#39;unununium&#39;</span></code></pre></div>
+<p>Two or more string literals (i.e. the ones enclosed between quotes) next to each other are automatically concatenated.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span>
+<span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Py&#39;</span> <span class="st">&#39;thon&#39;</span>
+<span class="co">&#39;Python&#39;</span></code></pre></div>
+</section>
+<section id="section-7" class="slide level3">
+<h3></h3>
+<p>This only works with two literals though, not with variables or expressions:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span>
+<span class="op">&gt;&gt;&gt;</span> prefix <span class="op">=</span> <span class="st">&#39;Py&#39;</span>
+<span class="op">&gt;&gt;&gt;</span> prefix <span class="st">&#39;thon&#39;</span>  <span class="co"># can&#39;t concatenate a variable and a string literal</span>
+  ...
+<span class="pp">SyntaxError</span>: invalid syntax
+<span class="op">&gt;&gt;&gt;</span> (<span class="st">&#39;un&#39;</span> <span class="op">*</span> <span class="dv">3</span>) <span class="st">&#39;ium&#39;</span>
+  ...
+<span class="pp">SyntaxError</span>: invalid syntax</code></pre></div>
+</section>
+<section id="section-8" class="slide level3">
+<h3></h3>
+<p>If you want to concatenate variables or a variable and a literal, use +:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span>
+<span class="op">&gt;&gt;&gt;</span> prefix <span class="op">+</span> <span class="st">&#39;thon&#39;</span>
+<span class="co">&#39;Python&#39;</span></code></pre></div>
+<p>This feature is particularly useful when you want to break long strings:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span>
+<span class="op">&gt;&gt;&gt;</span> text <span class="op">=</span> (<span class="st">&#39;Put several strings within parentheses &#39;</span>
+            <span class="st">&#39;to have them joined together.&#39;</span>)
+<span class="op">&gt;&gt;&gt;</span> text
+<span class="co">&#39;Put several strings within parentheses to have them joined together.&#39;</span></code></pre></div>
+</section>
+<section id="section-9" class="slide level3">
+<h3></h3>
+<h4 id="booleans">Booleans</h4>
+</section>
+<section id="section-10" class="slide level3">
+<h3></h3>
+<h4 id="moving-on-to-ipython">Moving On To IPython</h4>
+<aside class="notes">
+<p>At this point let's move on to a better Python interpreter - IPython.</p>
+</aside>
+</section>
+<section id="section-11" class="slide level3">
+<h3></h3>
+<h4 id="starting-ipython">Starting IPython</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">command</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ipython</td>
+<td style="text-align: left;">run IPython</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ipython qtconsole</td>
+<td style="text-align: left;">runs ipython in QT window</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ipython notebook</td>
+<td style="text-align: left;">runs the IPython notebook server</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ipython --help</td>
+<td style="text-align: left;">IPython man page</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ipython --help-all</td>
+<td style="text-align: left;">IPython man page with <em>all</em> command line options.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-12" class="slide level3">
+<h3></h3>
+<p>The four most helpful commands, as well as their brief description, are shown to you in a banner, every time you start IPython:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">command</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">?</td>
+<td style="text-align: left;">Introduction and overview of IPython’s features.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%quickref</td>
+<td style="text-align: left;">Quick reference.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">help</td>
+<td style="text-align: left;">Python’s own help system.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">object?</td>
+<td style="text-align: left;">Details about ‘object’, use ‘object??’ for extra details.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-13" class="slide level3">
+<h3></h3>
+<h4 id="lists">Lists</h4>
+<ul>
+<li>Surrounded by &quot;<a href="#/section-40"></a>&quot;</li>
+<li>Ordered</li>
+<li>Indexed at 0</li>
+<li>Can contain any type or mixed types
+<aside class="notes">
+<p>The next type we will look at it is lists. Lists are surrounded by square brackets. The order of a list always stays the same. The first item is item 0. They can contain any type, indeed they can contain a mix of types, including a list.</p>
+</aside></li>
+</ul>
+</section>
+<section id="section-14" class="slide level3">
+<h3></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">lst <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="dv">22</span>, <span class="st">&quot;pear&quot;</span>]
+lst[<span class="dv">0</span>]
+lst[<span class="dv">2</span>]
+lst[<span class="dv">3</span>] <span class="op">+</span> <span class="dv">7</span></code></pre></div>
+<aside class="notes">
+<p>Let's look at some operations on lists.</p>
+</aside>
+<h4 id="slicing-lists">Slicing Lists</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">lst[<span class="dv">1</span>:<span class="dv">3</span>]
+lst[:<span class="dv">2</span>]
+lst[<span class="dv">3</span>:]
+lst[:<span class="op">-</span><span class="dv">2</span>]
+lst[<span class="op">-</span><span class="dv">3</span>:]</code></pre></div>
+<aside class="notes">
+<p>You can slice a list by specifying the start and end of the slice. Just the end implies a start of 1 and just the first implies from there to the end of the list. You can specify a negative number to count from the end back.</p>
+</aside>
+</section>
+<section id="section-15" class="slide level3">
+<h3></h3>
+<h4 id="dictionaries">Dictionaries</h4>
+<ul>
+<li>A key and a value (think of a plist)</li>
+<li>Surrounded by &quot;{}&quot;</li>
+<li>Unordered</li>
+<li>keys
+<ul>
+<li>Case sensitive</li>
+<li>Unique</li>
+<li>New value overwrites</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Our final type are dictionaries. These are made up of a key and a value, similar to a plist. They don't have a fixed order so you may find that when you print one it comes out different to how you defined it.</p>
+</aside>
+</section>
+<section id="section-16" class="slide level3">
+<h3></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">dict</span> <span class="op">=</span> {<span class="st">&#39;x&#39;</span>: <span class="dv">12</span>, <span class="st">&#39;y&#39;</span>: <span class="dv">22</span>, <span class="st">&#39;z&#39;</span>: <span class="dv">2</span>}
+<span class="bu">dict</span>
+<span class="bu">dict</span>[<span class="st">&#39;x&#39;</span>]</code></pre></div>
+</section>
+<section id="section-17" class="slide level3">
+<h3></h3>
+<h4 id="flow-control">Flow Control</h4>
+<aside class="notes">
+<p>Now we can have a look at how we control our code.</p>
+</aside>
+<h4 id="decisions-decisions">Decisions, Decisions</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">num <span class="op">=</span> <span class="dv">3</span>
+<span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">2</span>:
+    <span class="bu">print</span> <span class="st">&quot;Big&quot;</span>
+<span class="cf">else</span>:
+    <span class="bu">print</span> <span class="st">&quot;Small&quot;</span></code></pre></div>
+<aside class="notes">
+<p>Just as you might have seen in <code>bash</code> Python has an 'if' statement. Now indentation is meaningful in Python, see the indentation rather than the <code>do</code> and <code>done</code> you would see in Bash. Also notice the colon character.</p>
+</aside>
+</section>
+<section id="section-18" class="slide level3">
+<h3></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</section>
+<section id="section-19" class="slide level3">
+<h3></h3>
+<h4 id="loops">Loops</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tm <span class="op">=</span> <span class="dv">1</span>
+<span class="cf">while</span> tm <span class="op">&gt;=</span> <span class="dv">10</span>:
+    <span class="bu">print</span> tm
+    tm <span class="op">=</span> tm <span class="op">+</span> <span class="dv">1</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>):
+    <span class="bu">print</span> x</code></pre></div>
+</section>
+<section id="section-20" class="slide level3">
+<h3></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">collection <span class="op">=</span> [<span class="st">&#39;hey&#39;</span>, <span class="dv">5</span>, <span class="st">&#39;d&#39;</span>]
+<span class="cf">for</span> x <span class="kw">in</span> collection:
+    <span class="bu">print</span> x</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">list_of_lists <span class="op">=</span> [ [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]]
+<span class="cf">for</span> <span class="bu">list</span> <span class="kw">in</span> list_of_lists:
+    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">list</span>:
+        <span class="bu">print</span> x</code></pre></div>
+</section>
+<section id="section-21" class="slide level3">
+<h3></h3>
+<h4 id="tab-completion">Tab completion</h4>
+<p>Tab completion, especially for attributes, is a convenient way to explore the structure of any object you’re dealing with. Simply type <code>object_name.&lt;TAB&gt;</code> to view the object’s attributes. Besides Python objects and keywords, tab completion also works on file and directory names.</p>
+<h4 id="exploring-your-objects">Exploring your objects</h4>
+<p>Typing <code>object_name?</code> will print all sorts of details about any object, including docstrings, function definition lines (for call arguments) and constructor details for classes. To get specific information on an object, you can use the magic commands %pdoc, %pdef, %psource and %pfile</p>
+</section>
+<section id="section-22" class="slide level3">
+<h3></h3>
+<h4 id="magic-functions">Magic functions</h4>
+<p>IPython has a set of predefined ‘magic functions’ that you can call with a command line style syntax. There are two kinds of magics, line-oriented and cell-oriented. Line magics are prefixed with the % character and work much like OS command-line calls: they get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Cell magics are prefixed with a double %%, and they are functions that get as an argument not only the rest of the line, but also the lines below it in a separate argument.</p>
+<p>The following examples show how to call the builtin %timeit magic, both in line and cell mode:</p>
+<pre><code>In [1]: %timeit range(1000)
+100000 loops, best of 3: 7.76 us per loop
+
+In [2]: %%timeit x = range(10000)
+   ...: max(x)
+   ...:
+1000 loops, best of 3: 223 us per loop</code></pre>
+</section>
+<section id="section-23" class="slide level3">
+<h3></h3>
+<p><strong>The builtin magics include:</strong></p>
+<ul>
+<li><strong>Functions that work with code:</strong> %run, %edit, %save, %macro, %recall, etc.</li>
+<li><strong>Functions which affect the shell:</strong> %colors, %xmode, %autoindent, %automagic, etc.</li>
+<li><strong>Other functions such as</strong> %reset, %timeit, %%writefile, %load, or %paste.</li>
+</ul>
+<p>You can always call them using the % prefix, and if you’re calling a line magic on a line by itself, you can omit even that:</p>
+<pre><code>run thescript.py</code></pre>
+<p>You can toggle this behavior by running the %automagic magic. Cell magics must always have the %% prefix.</p>
+<p>A more detailed explanation of the magic system can be obtained by calling %magic, and for more details on any magic function, call %somemagic? to read its docstring. To see all the available magic functions, call %lsmagic.</p>
+</section>
+<section id="section-24" class="slide level3">
+<h3></h3>
+<h4 id="history">History</h4>
+<p>IPython stores the commands you enter and the results. You can go through previous commands with the up- and down-arrow keys, or access your history in more sophisticated ways.</p>
+<p>Input and output history are kept in variables called In and Out, keyed by the prompt numbers, e.g. In[4]. The last three objects in output history are also kept in variables named <code>_</code>, <code>__</code> and <code>___</code>.</p>
+<p>You can use the %history magic function to examine past input and output. Input history from previous sessions is saved in a database, and IPython can be configured to save output history.</p>
+<p>Several other magic functions can use your input history, including %edit, %rerun, %recall, %macro, %save and %pastebin. You can use a standard format to refer to lines:</p>
+<pre><code>%pastebin 3 18-20 ~1/1-5</code></pre>
+<p>This will take line 3 and lines 18 to 20 from the current session, and lines 1-5 from the previous session.</p>
+</section>
+<section id="section-25" class="slide level3">
+<h3></h3>
+<h4 id="explore-the-magic-functions">Explore The Magic Functions</h4>
+<h5 id="bookmark">%bookmark</h5>
+<p><code>bookmark</code> is a directory bookmarking system.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">command</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">bookmark name</td>
+<td style="text-align: left;">set bookmark to current dir</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bookmark name dir</td>
+<td style="text-align: left;">set bookmark to dir</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bookmark -l</td>
+<td style="text-align: left;">list all bookmarks</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bookmark -d name</td>
+<td style="text-align: left;">remove bookmark</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bookmark -r</td>
+<td style="text-align: left;">remove all bookmarks</td>
+</tr>
+</tbody>
+</table>
+<p>Then <code>cd -b &lt;name&gt;</code> or just <code>cd &lt;name&gt;</code> if there is no directory called <name> AND there is such a bookmark defined. (The latter is why I usually use two or three letter bookmark names.)</p>
+</section>
+<section id="section-26" class="slide level3">
+<h3></h3>
+<h5 id="cd">%cd</h5>
+<p>The <code>cd</code> magic is necessary (and nicely enhanced) as the system <code>cd</code> won't work. It keeps a history of the directories visited.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">command</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cd</td>
+<td style="text-align: left;">changes to <code>~</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cd 'dir'</td>
+<td style="text-align: left;">changes to directory 'dir'</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cd -</td>
+<td style="text-align: left;">changes to previous directory</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cd -<code>&lt;n&gt;</code></td>
+<td style="text-align: left;">changes to directory <code>&lt;n&gt;</code> in directory history</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cd --foo</td>
+<td style="text-align: left;">changes to directory that matches 'foo' in history</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cd -b <code>&lt;name&gt;</code></td>
+<td style="text-align: left;">jump to bookmark <code>&lt;name&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>%dhist</code> prints the directory history and <code>%dhist &lt;n&gt;</code> prints the last <code>&lt;n&gt;</code> entries.</p>
+</section>
+<section id="section-27" class="slide level3">
+<h3></h3>
+<h5 id="the-directory-stack">The directory stack</h5>
+<p>As well as a history of directories IPython also has a directory stack.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">command</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dirs</td>
+<td style="text-align: left;">list directory stack</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pushd</td>
+<td style="text-align: left;">push the current directory onto the stack</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pushd <code>&lt;dir&gt;</code></td>
+<td style="text-align: left;">push the current directory and cd to <code>&lt;dir&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">popd</td>
+<td style="text-align: left;">pop the top directory off the stack and cd to it</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-28" class="slide level3">
+<h3></h3>
+<h5 id="edit">%edit</h5>
+<p><code>edit</code> opens things in the editor you have defined in your $EDITOR environment variable. ###</p>
+<h4 id="prompt-customization">Prompt customization</h4>
+<p>Here are some prompt configurations you can try out interactively by using the %config magic:</p>
+<pre><code>%config PromptManager.in_template = r&#39;{color.LightGreen}\u@\h{color.LightBlue}\
+[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
+%config PromptManager.in2_template = r&#39;{color.Green}|{color.LightGreen}\D{color.Green}&gt; &#39;
+%config PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
+</section>
+<section id="section-29" class="slide level3">
+<h3></h3>
+<p>You can change the prompt configuration to your liking permanently by editing ipython_config.py:</p>
+<pre><code>c.PromptManager.in_template = r&#39;{color.LightGreen}\u@\h{color.LightBlue}\
+[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
+c.PromptManager.in2_template = r&#39;{color.Green}|{color.LightGreen}\D{color.Green}&gt; &#39;
+c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
+<p>Read more about the configuration system for details on how to find ipython_config.py.</p>
+</section>
+<section id="section-30" class="slide level3">
+<h3></h3>
+<h4 id="string-lists">String lists</h4>
+<p>String lists (IPython.utils.text.SList) are a handy way to process output from system commands. They are produced by <code>var = !cmd</code> syntax.</p>
+<p>First, we acquire the output of <code>ls -l</code>:</p>
+<pre><code>[Q:doc/examples]|2&gt; lines = !ls -l
+ ==
+[&#39;total 23&#39;,
+ &#39;-rw-rw-rw- 1 ville None 1163 Sep 30  2006 example-demo.py&#39;,
+ &#39;-rw-rw-rw- 1 ville None 1927 Sep 30  2006 example-embed-short.py&#39;,
+ &#39;-rwxrwxrwx 1 ville None 4606 Sep  1 17:15 example-embed.py&#39;,
+ &#39;-rwxrwxrwx 1 ville None 1017 Sep 30  2006 example-gnuplot.py&#39;,
+ &#39;-rwxrwxrwx 1 ville None  339 Jun 11 18:01 extension.py&#39;,
+ &#39;-rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py&#39;,
+ &#39;-rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc&#39;]</code></pre>
+</section>
+<section id="section-31" class="slide level3">
+<h3></h3>
+<p>Now, let’s take a look at the contents of ‘lines’ (the first number is the list element number):</p>
+<pre><code>[Q:doc/examples]|3&gt; lines
+                &lt;3&gt; SList (.p, .n, .l, .s, .grep(), .fields() available). Value:
+
+0: total 23
+1: -rw-rw-rw- 1 ville None 1163 Sep 30  2006 example-demo.py
+2: -rw-rw-rw- 1 ville None 1927 Sep 30  2006 example-embed-short.py
+3: -rwxrwxrwx 1 ville None 4606 Sep  1 17:15 example-embed.py
+4: -rwxrwxrwx 1 ville None 1017 Sep 30  2006 example-gnuplot.py
+5: -rwxrwxrwx 1 ville None  339 Jun 11 18:01 extension.py
+6: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
+7: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc</code></pre>
+</section>
+<section id="section-32" class="slide level3">
+<h3></h3>
+<p>Now, let’s filter out the ‘embed’ lines:</p>
+<pre><code>[Q:doc/examples]|4&gt; l2 = lines.grep(&#39;embed&#39;,prune=1)
+[Q:doc/examples]|5&gt; l2
+                &lt;5&gt; SList (.p, .n, .l, .s, .grep(), .fields() available). Value:
+
+0: total 23
+1: -rw-rw-rw- 1 ville None 1163 Sep 30  2006 example-demo.py
+2: -rwxrwxrwx 1 ville None 1017 Sep 30  2006 example-gnuplot.py
+3: -rwxrwxrwx 1 ville None  339 Jun 11 18:01 extension.py
+4: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
+5: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc</code></pre>
+</section>
+<section id="section-33" class="slide level3">
+<h3></h3>
+<p>Now, we want strings having just file names and permissions:</p>
+<pre><code>[Q:doc/examples]|6&gt; l2.fields(8,0)
+                &lt;6&gt; SList (.p, .n, .l, .s, .grep(), .fields() available). Value:
+
+0: total
+1: example-demo.py -rw-rw-rw-
+2: example-gnuplot.py -rwxrwxrwx
+3: extension.py -rwxrwxrwx
+4: seteditor.py -rwxrwxrwx
+5: seteditor.pyc -rwxrwxrwx</code></pre>
+<p>Note how the line with ‘total’ does not raise IndexError.</p>
+</section>
+<section id="section-34" class="slide level3">
+<h3></h3>
+<p>If you want to split these (yielding lists), call fields() without arguments:</p>
+<pre><code>[Q:doc/examples]|7&gt; _.fields()
+                &lt;7&gt;
+[[&#39;total&#39;],
+ [&#39;example-demo.py&#39;, &#39;-rw-rw-rw-&#39;],
+ [&#39;example-gnuplot.py&#39;, &#39;-rwxrwxrwx&#39;],
+ [&#39;extension.py&#39;, &#39;-rwxrwxrwx&#39;],
+ [&#39;seteditor.py&#39;, &#39;-rwxrwxrwx&#39;],
+ [&#39;seteditor.pyc&#39;, &#39;-rwxrwxrwx&#39;]]</code></pre>
+</section>
+<section id="section-35" class="slide level3">
+<h3></h3>
+<p>If you want to pass these separated with spaces to a command (typical for lists of files), use the .s property:</p>
+<pre><code>[Q:doc/examples]|13&gt; files = l2.fields(8).s
+[Q:doc/examples]|14&gt; files
+                &lt;14&gt; &#39;example-demo.py example-gnuplot.py extension.py seteditor.py seteditor.pyc&#39;
+[Q:doc/examples]|15&gt; ls $files
+example-demo.py  example-gnuplot.py  extension.py  seteditor.py  seteditor.pyc</code></pre>
+<p>SLists are inherited from normal python lists, so every list method is available:</p>
+<pre><code>[Q:doc/examples]|21&gt; lines.append(&#39;hey&#39;)</code></pre>
+</section>
+<section id="section-36" class="slide level3">
+<h3></h3>
+<h4 id="more-with-lists">More with lists</h4>
+<p>Let's start with a list of files.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cd <span class="op">/</span>Applications<span class="op">/</span>Utilities
+utils <span class="op">=</span> <span class="op">!</span>ls</code></pre></div>
+<p>We now have an Slist. Have a look at it.</p>
+<pre><code>utils.p
+utils.n
+utils.s</code></pre>
+<p>What's the problem with <code>utils.s</code>?</p>
+</section>
+<section id="section-37" class="slide level3">
+<h3></h3>
+<h4 id="fixing-the-spaces">Fixing the spaces</h4>
+<p>We're going to use <code>map</code></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> quote(<span class="bu">str</span>):
+    <span class="cf">return</span> <span class="st">&#39;&quot;&#39;</span> <span class="op">+</span> <span class="bu">str</span> <span class="op">+</span> <span class="st">&#39;&quot;&#39;</span>
+
+new <span class="op">=</span> <span class="bu">map</span>(quote, utils)
+them <span class="op">=</span> <span class="st">&#39; &#39;</span>.join(new)
+them</code></pre></div>
+<h4 id="list-comprehension-instead">List comprehension instead</h4>
+<p>List comprehensions are a neat trick</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">u <span class="op">=</span> [<span class="st">&#39;&quot;&#39;</span> <span class="op">+</span> i <span class="op">+</span><span class="st">&#39;&quot;&#39;</span> <span class="cf">for</span> i <span class="kw">in</span> utils]
+u</code></pre></div>
+</section>
+<section id="section-38" class="slide level3">
+<h3></h3>
+<h4 id="talking-to-jss">Talking To JSS</h4>
+<p>First we get our JSS object</p>
+<pre><code>import jss
+jss_prefs = jss.JSSPrefs()
+j = jss.JSS(jss_prefs)</code></pre>
+<p>Get the computer list</p>
+<pre><code>j.Computer()</code></pre>
+<p>Notice that python-jss pretty prints the list. Note also that it doesn't retrieve all the information, just the name and id.</p>
+<p>Put the result in a variable and format it yourself.</p>
+<pre><code>computers = j.Computer()
+for i in computers:
+    print &quot;id:&quot;+str(i.id)+&quot; name:&quot;+i.name</code></pre>
+</section>
+<section id="section-39" class="slide level3">
+<h3></h3>
+<p>Now get the record of one computer. This will get <strong>all</strong> the record.</p>
+<pre><code>example = j.Computer(193)
+example</code></pre>
+<p>We can view that with <code>less</code> using the <code>page</code> magic.</p>
+<pre><code>page example</code></pre>
+<p>Some information is easily retrieved</p>
+<pre><code>example.serial_number
+example.mac_addresses</code></pre>
+</section>
+<section id="section-40" class="slide level3">
+<h3></h3>
+<p>Other information requires some XML work. XML is a tree of nodes and we have to work with those nodes.</p>
+<p>Let's get a list of installed applications. <code>findall()</code> will return a list of nodes that match our search string. <code>find()</code> returns a single child node that matches.</p>
+<pre><code>x = example.findall(&#39;.//application&#39;)
+for i in x:
+    nm = i.find(&#39;name&#39;)
+    ver = i.find(&#39;version&#39;)
+    path = i.find(&#39;path&#39;)
+    print nm.text, ver.text, path.text</code></pre>
+<p>Rather than print it let's gather the info.</p>
+<pre><code>o = []
+for i in x:
+    nm = i.find(&#39;name&#39;)
+    ver = i.find(&#39;version&#39;)
+    path = i.find(&#39;path&#39;)
+    o.append(&#39; &#39;.join([nm.text, ver.text, path.text]))
+o</code></pre>
+</section>
+<section id="further-examples" class="slide level3">
+<h3>Further examples</h3>
+<pre><code>model = comp.findall(&#39;.//hardware/model_identifier&#39;)
+model[0].text
+os = comp.findall(&#39;.//os_version&#39;)
+os[0].text</code></pre>
+<p>Lets get <em>all</em> the computer records. (<em>This might take a while.</em>)</p>
+<pre><code>all_computers = j.Computer().retrieve_all()</code></pre>
+<p>Now iterate over them</p>
+<pre><code>for computer in all_computers:
+    model = computer.findtext(&#39;model&#39;)
+    os = computer.findtext(&#39;os_version&#39;)</code></pre>
+</section>
+<section id="lets-explore" class="slide level3">
+<h3>Let's Explore</h3>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
