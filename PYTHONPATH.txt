@@ -1,0 +1,1 @@
+export PYTHONPATH=$PYTHONPATH:/System/Library/Frameworks/Python.framework/Versions/Current/Extras/lib/python/PyObjC:/System/Library/Frameworks/Python.framework/Versions/Current/Extras/lib/python

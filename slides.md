@@ -36,12 +36,16 @@ For example:
 1.6
 ```
 <div class="notes">
-Notice that numbers are not enclosed by quotes or anything else. There are two types of numbers, integers and floating point. If you use a floating point number in a calculation the result will be a floating point number.
+Notice that numbers are not enclosed by quotes or anything else. There
+are two types of numbers, integers and floating point. If you use a
+floating point number in a calculation the result will be a floating
+point number.
 </div>
 
 ###
 
-The equal sign (=) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive prompt:
+The equal sign (=) is used to assign a value to a variable. Afterwards,
+no result is displayed before the next interactive prompt:
 
 ``` python
 >>> width = 20
@@ -50,7 +54,8 @@ The equal sign (=) is used to assign a value to a variable. Afterwards, no resul
 900
 ```
 
-If a variable is not “defined” (assigned a value), trying to use it will give you an error:
+If a variable is not “defined” (assigned a value), trying to use it will
+give you an error:
 
 ```
 >>>
@@ -62,7 +67,9 @@ NameError: name 'n' is not defined
 
 ###
 
-In interactive mode, the last printed expression is assigned to the variable _. This means that when you are using Python as a desk calculator, it is somewhat easier to continue calculations, for example:
+In interactive mode, the last printed expression is assigned to the
+variable _. This means that when you are using Python as a desk
+calculator, it is somewhat easier to continue calculations, for example:
 
 ```
 >>>
@@ -78,7 +85,9 @@ In interactive mode, the last printed expression is assigned to the variable _. 
 
 #### Strings
 
-Besides numbers, Python can also manipulate strings, which can be expressed in several ways.  They can be enclosed in single quotes ('...') or double quotes ("...") with the same result.
+Besides numbers, Python can also manipulate strings, which can be
+expressed in several ways.  They can be enclosed in single quotes
+('...') or double quotes ("...") with the same result.
 
 `\` can be used to escape quotes:
 
@@ -102,7 +111,10 @@ Besides numbers, Python can also manipulate strings, which can be expressed in s
 
 #### Triple quotes
 
-String literals can span multiple lines and include white space. One way is using triple-quotes: """...""" or '''...'''. End of lines are automatically included in the string, but it’s possible to prevent this by adding a \ at the end of the line. The following example:
+String literals can span multiple lines and include white space. One way
+is using triple-quotes: """...""" or '''...'''. End of lines are
+automatically included in the string, but it’s possible to prevent this
+by adding a \ at the end of the line. The following example:
 
 ``` python
 print ("""\
@@ -118,7 +130,9 @@ Usage: thingy [OPTIONS]
      -H hostname               Hostname to connect to
 ```
 <div class="notes">
-You will often see string literals enclosed in triple quotes at the top of function definitions. These are called "docstrings"  and are used to build the help system in Python.
+You will often see string literals enclosed in triple quotes at the top
+of function definitions. These are called "docstrings"  and are used to
+build the help system in Python.
 </div>
 ###
 
@@ -133,7 +147,8 @@ Strings can be concatenated (glued together) with the + operator, and repeated w
 'unununium'
 ```
 
-Two or more string literals (i.e. the ones enclosed between quotes) next to each other are automatically concatenated.
+Two or more string literals (i.e. the ones enclosed between quotes) next
+to each other are automatically concatenated.
 
 ``` python
 >>>
@@ -201,7 +216,8 @@ At this point let's move on to a better Python interpreter - IPython.
 
 ###
 
-The four most helpful commands, as well as their brief description, are shown to you in a banner, every time you start IPython:
+The four most helpful commands, as well as their brief description, are
+shown to you in a banner, every time you start IPython:
 
 | command	| description                                               |
 |:----------|:----------------------------------------------------------| 
@@ -218,8 +234,12 @@ The four most helpful commands, as well as their brief description, are shown to
 - Ordered
 - Indexed at 0
 - Can contain any type or mixed types
+
 <div class="notes">
-The next type we will look at it is lists. Lists are surrounded by square brackets. The order of a list always stays the same. The first item is item 0. They can contain any type, indeed they can contain a mix of types, including a list.
+The next type we will look at it is lists. Lists are surrounded by
+square brackets. The order of a list always stays the same. The first
+item is item 0. They can contain any type, indeed they can contain a mix
+of types, including a list.
 </div>
 
 ###
@@ -244,8 +264,10 @@ lst[:-2]
 lst[-3:]
 ```
 <div class="notes">
-You can slice a list by specifying the start and end of the slice. Just the end implies
-a start of 1 and just the first implies from there to the end of the list. You can specify a negative number to count from the end back.
+You can slice a list by specifying the start and end of the slice. Just
+the end implies a start of 1 and just the first implies from there to
+the end of the list. You can specify a negative number to count from the
+end back.
 </div>
 ###
 
@@ -260,7 +282,9 @@ a start of 1 and just the first implies from there to the end of the list. You c
 	- New value overwrites
 
 <div class="notes">
-Our final type are dictionaries. These are made up of a key and a value, similar to a plist. They don't have a fixed order so you may find that when you print one it comes out different to how you defined it.
+Our final type are dictionaries. These are made up of a key and a value,
+similar to a plist. They don't have a fixed order so you may find that
+when you print one it comes out different to how you defined it.
 </div>
 
 ###
@@ -289,14 +313,10 @@ else:
 	print "Small"
 ```
 <div class="notes">
-Just as you might have seen in `bash` Python has an 'if' statement. Now indentation is meaningful in Python, see the indentation rather than the `do` and `done` you would see in Bash. Also notice the colon character.
+Just as you might have seen in `bash` Python has an 'if' statement. Now
+indentation is meaningful in Python, see the indentation rather than the
+`do` and `done` you would see in Bash. Also notice the colon character.
 </div>
-
-###
-
-``` python
-
-```
 
 ###
 
@@ -332,16 +352,31 @@ for list in list_of_lists:
 ###
 
 #### Tab completion
-Tab completion, especially for attributes, is a convenient way to explore the structure of any object you’re dealing with. Simply type `object_name.<TAB>` to view the object’s attributes. Besides Python objects and keywords, tab completion also works on file and directory names.
+Tab completion, especially for attributes, is a convenient way to
+explore the structure of any object you’re dealing with. Simply type
+`object_name.<TAB>` to view the object’s attributes. Besides Python
+objects and keywords, tab completion also works on file and directory
+names.
 
 #### Exploring your objects
-Typing `object_name?` will print all sorts of details about any object, including docstrings, function definition lines (for call arguments) and constructor details for classes. To get specific information on an object, you can use the magic commands %pdoc, %pdef, %psource and %pfile
+Typing `object_name?` will print all sorts of details about any object,
+including docstrings, function definition lines (for call arguments) and
+constructor details for classes. To get specific information on an
+object, you can use the magic commands %pdoc, %pdef, %psource and %pfile
 
 ###
 #### Magic functions
-IPython has a set of predefined ‘magic functions’ that you can call with a command line style syntax. There are two kinds of magics, line-oriented and cell-oriented. Line magics are prefixed with the % character and work much like OS command-line calls: they get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Cell magics are prefixed with a double %%, and they are functions that get as an argument not only the rest of the line, but also the lines below it in a separate argument.
+IPython has a set of predefined ‘magic functions’ that you can call with
+a command line style syntax. There are two kinds of magics,
+line-oriented and cell-oriented. Line magics are prefixed with the %
+character and work much like OS command-line calls: they get as an
+argument the rest of the line, where arguments are passed without
+parentheses or quotes. Cell magics are prefixed with a double %%, and
+they are functions that get as an argument not only the rest of the
+line, but also the lines below it in a separate argument.
 
-The following examples show how to call the builtin %timeit magic, both in line and cell mode:
+The following examples show how to call the builtin %timeit magic, both
+in line and cell mode:
 ```
 In [1]: %timeit range(1000)
 100000 loops, best of 3: 7.76 us per loop
@@ -359,15 +394,21 @@ In [2]: %%timeit x = range(10000)
  * **Functions which affect the shell:** %colors, %xmode, %autoindent, %automagic, etc.
  * **Other functions such as** %reset, %timeit, %%writefile, %load, or %paste.
 
-You can always call them using the % prefix, and if you’re calling a line magic on a line by itself, you can omit even that:
+You can always call them using the % prefix, and if you’re calling a
+line magic on a line by itself, you can omit even that:
 ```
 run thescript.py
 ```
-You can toggle this behavior by running the %automagic magic. Cell magics must always have the %% prefix.
+You can toggle this behavior by running the %automagic magic. Cell
+magics must always have the %% prefix.
 
-A more detailed explanation of the magic system can be obtained by calling %magic, and for more details on any magic function, call %somemagic? to read its docstring. To see all the available magic functions, call %lsmagic.
+A more detailed explanation of the magic system can be obtained by
+calling %magic, and for more details on any magic function, call
+%somemagic? to read its docstring. To see all the available magic
+functions, call %lsmagic.
 
 ###
+
 #### History
 IPython stores the commands you enter and the results.
 You can go through previous commands with the up- and down-arrow keys,
@@ -389,7 +430,8 @@ standard format to refer to lines:
 %pastebin 3 18-20 ~1/1-5
 ```
 
-This will take line 3 and lines 18 to 20 from the current session, and lines 1-5 from the previous session.
+This will take line 3 and lines 18 to 20 from the current session, and
+lines 1-5 from the previous session.
 
 ###
 #### Explore The Magic Functions
@@ -413,8 +455,8 @@ bookmark names.)
 ###
 ##### %cd
 
-The `cd` magic is necessary (and nicely enhanced) as the system `cd` won't work. It keeps a history
-of the directories visited.
+The `cd` magic is necessary (and nicely enhanced) as the system `cd`
+won't work. It keeps a history of the directories visited.
 
 | command        | description                                        |
 |:---------------|:---------------------------------------------------|
@@ -428,6 +470,7 @@ of the directories visited.
 `%dhist` prints the directory history and `%dhist <n>` prints the last `<n>` entries.
 
 ### 
+
 ##### The directory stack
 
 As well as a history of directories IPython also has a directory stack.
@@ -475,6 +518,8 @@ Read more about the configuration system for details on how to find ipython_conf
 
 ###
 
+#### More About Lists
+
 #### String lists
 
 String lists (IPython.utils.text.SList) are a handy way to process output
@@ -483,52 +528,63 @@ from system commands. They are produced by `var = !cmd` syntax.
 First, we acquire the output of `ls -l`:
 
 ```
-[Q:doc/examples]|2> lines = !ls -l
- ==
-['total 23',
- '-rw-rw-rw- 1 ville None 1163 Sep 30  2006 example-demo.py',
- '-rw-rw-rw- 1 ville None 1927 Sep 30  2006 example-embed-short.py',
- '-rwxrwxrwx 1 ville None 4606 Sep  1 17:15 example-embed.py',
- '-rwxrwxrwx 1 ville None 1017 Sep 30  2006 example-gnuplot.py',
- '-rwxrwxrwx 1 ville None  339 Jun 11 18:01 extension.py',
- '-rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py',
- '-rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc']
+In [4]: lines = !ls -l
+
+###
+
+Now, let’s take a look at the contents of ‘lines’:
+
+```
+In [5]: lines
+Out[5]:
+['total 22888',
+ '-rw-r--r--@  1 tonyw  staff  10129637 26 May 19:45 Input-Font.zip',
+ '-rw-r--r--@  1 tonyw  staff      1901 29 May 09:04 README.md',
+ '-rw-r--r--@  1 tonyw  staff     53078 27 Apr 10:17 XW16-Empty.jpg',
+ '-rw-r--r--@  1 tonyw  staff    332729 27 Apr 09:01 XW16-Empty.pxm',
+ '-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_1.txt',
+ '-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_2.txt',
+ '-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_3.txt',
+ '-rw-r--r--@  1 tonyw  staff     38783 26 May 19:29 index.html',
+ '-rwxr-xr-x@  1 tonyw  staff       369 26 May 19:36 pandoc-print.sh',
+ '-rwxr-xr-x@  1 tonyw  staff       302 26 May 19:37 pandoc.sh',
+ '-rw-r--r--   1 tonyw  staff     38516 26 May 20:19 print.html',
+ 'drwxr-xr-x@ 16 tonyw  staff       544 26 May 11:31 reveal.js',
+ '-rw-r--r--@  1 tonyw  staff     19288 26 May 19:56 slides.md',
+ '-rw-r--r--@  1 tonyw  staff    588576 26 May 20:20 slides.pdf',
+ '-rw-r--r--@  1 tonyw  staff     95532 26 May 20:23 slides_notes.pdf',
+ '-rw-r--r--@  1 tonyw  staff    379863 26 May 19:45 solarized.zip']```
 ```
 
 ###
 
-Now, let’s take a look at the contents of ‘lines’ (the first number is
-the list element number):
+SLists have special properties
 
 ```
-[Q:doc/examples]|3> lines
-                <3> SList (.p, .n, .l, .s, .grep(), .fields() available). Value:
-
-0: total 23
-1: -rw-rw-rw- 1 ville None 1163 Sep 30  2006 example-demo.py
-2: -rw-rw-rw- 1 ville None 1927 Sep 30  2006 example-embed-short.py
-3: -rwxrwxrwx 1 ville None 4606 Sep  1 17:15 example-embed.py
-4: -rwxrwxrwx 1 ville None 1017 Sep 30  2006 example-gnuplot.py
-5: -rwxrwxrwx 1 ville None  339 Jun 11 18:01 extension.py
-6: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
-7: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc
+lines.p
+lines.n
+lines.s
 ```
 
 ###
 
-Now, let’s filter out the ‘embed’ lines:
+SLists also inherit all the properties of strings. Let's have a look at
+some.
+
+Let’s filter out the ‘slides’ lines:
 
 ```
-[Q:doc/examples]|4> l2 = lines.grep('embed',prune=1)
-[Q:doc/examples]|5> l2
-                <5> SList (.p, .n, .l, .s, .grep(), .fields() available). Value:
-
-0: total 23
-1: -rw-rw-rw- 1 ville None 1163 Sep 30  2006 example-demo.py
-2: -rwxrwxrwx 1 ville None 1017 Sep 30  2006 example-gnuplot.py
-3: -rwxrwxrwx 1 ville None  339 Jun 11 18:01 extension.py
-4: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
-5: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc
+In [6]: lines.grep('empty',prune=1)
+Out[6]:
+['total 22888',
+ '-rw-r--r--@  1 tonyw  staff  10129637 26 May 19:45 Input-Font.zip',
+ '-rw-r--r--@  1 tonyw  staff      1901 29 May 09:04 README.md',
+ '-rw-r--r--@  1 tonyw  staff     38783 26 May 19:29 index.html',
+ '-rwxr-xr-x@  1 tonyw  staff       369 26 May 19:36 pandoc-print.sh',
+ '-rwxr-xr-x@  1 tonyw  staff       302 26 May 19:37 pandoc.sh',
+ '-rw-r--r--   1 tonyw  staff     38516 26 May 20:19 print.html',
+ 'drwxr-xr-x@ 16 tonyw  staff       544 26 May 11:31 reveal.js',
+ '-rw-r--r--@  1 tonyw  staff    379863 26 May 19:45 solarized.zip']
 ```
 
 ###
@@ -536,32 +592,38 @@ Now, let’s filter out the ‘embed’ lines:
 Now, we want strings having just file names and permissions:
 
 ```
-[Q:doc/examples]|6> l2.fields(8,0)
-                <6> SList (.p, .n, .l, .s, .grep(), .fields() available). Value:
+In [8]: Out[6].fields(8,0)
+Out[8]:
+['total',
+ 'Input-Font.zip -rw-r--r--@',
+ 'README.md -rw-r--r--@',
+ 'index.html -rw-r--r--@',
+ 'pandoc-print.sh -rwxr-xr-x@',
+ 'pandoc.sh -rwxr-xr-x@',
+ 'print.html -rw-r--r--',
+ 'reveal.js drwxr-xr-x@',
+ 'solarized.zip -rw-r--r--@']```
 
-0: total
-1: example-demo.py -rw-rw-rw-
-2: example-gnuplot.py -rwxrwxrwx
-3: extension.py -rwxrwxrwx
-4: seteditor.py -rwxrwxrwx
-5: seteditor.pyc -rwxrwxrwx
-```
-
+<div class="notes">
 Note how the line with ‘total’ does not raise IndexError.
+</div>
 
 ###
 
 If you want to split these (yielding lists), call fields() without arguments:
 
 ```
-[Q:doc/examples]|7> _.fields()
-                <7>
+In [9]: _.fields()
+Out[9]:
 [['total'],
- ['example-demo.py', '-rw-rw-rw-'],
- ['example-gnuplot.py', '-rwxrwxrwx'],
- ['extension.py', '-rwxrwxrwx'],
- ['seteditor.py', '-rwxrwxrwx'],
- ['seteditor.pyc', '-rwxrwxrwx']]
+ ['Input-Font.zip', '-rw-r--r--@'],
+ ['README.md', '-rw-r--r--@'],
+ ['index.html', '-rw-r--r--@'],
+ ['pandoc-print.sh', '-rwxr-xr-x@'],
+ ['pandoc.sh', '-rwxr-xr-x@'],
+ ['print.html', '-rw-r--r--'],
+ ['reveal.js', 'drwxr-xr-x@'],
+ ['solarized.zip', '-rw-r--r--@']]
 ```
 
 ###
@@ -570,18 +632,13 @@ If you want to pass these separated with spaces to a command (typical
 for lists of files), use the .s property:
 
 ```
-[Q:doc/examples]|13> files = l2.fields(8).s
-[Q:doc/examples]|14> files
-                <14> 'example-demo.py example-gnuplot.py extension.py seteditor.py seteditor.pyc'
-[Q:doc/examples]|15> ls $files
-example-demo.py  example-gnuplot.py  extension.py  seteditor.py  seteditor.pyc
-```
-SLists are inherited from normal python lists, so every list method is available:
-```
-[Q:doc/examples]|21> lines.append('hey')
+In [10]: Out[6].fields(8).s
+Out[10]: 'Input-Font.zip README.md index.html pandoc-print.sh pandoc.sh print.html 
+reveal.js slides.md slides.pdf slides_notes.pdf solarized.zip'
 ```
 ###
-#### More with lists
+
+#### More with Slists
 
 Let's start with a list of files.
 
@@ -599,8 +656,13 @@ utils.s
 ```
 
 What's the problem with `utils.s`?
+<div class="notes">
+The problem we see here us that when there is a space in a file name it isn't
+treated properly by the 's' fucnction - it should be wrapped in quotes.
+</div>
 
 ###
+
 #### Fixing the spaces
 
 We're going to use `map`
@@ -614,18 +676,52 @@ them = ' '.join(new)
 them
 ```
 
+<div class="notes">
+`map` is a python function that calls the function that is it's first parameter on
+every member of the list that is it's second paramater.
+</div>
+
 #### List comprehension instead
 
 List comprehensions are a neat trick
+
+The basic syntax is
+[ expression for item in list if conditional ]
+
+
+<div class="notes">
+
+#### List comprehensions
+
+List comprehensions provide a concise way to create lists. 
+
+It consists of brackets containing an expression followed by a for clause, then
+zero or more for or if clauses. The expressions can be anything, meaning you can
+put in all kinds of objects in lists.
+
+The result will be a new list resulting from evaluating the expression in the
+context of the for and if clauses which follow it. 
+</div>
+
+###
 
 ``` python
 u = ['"' + i +'"' for i in utils]
 u
 ```
+<div class="notes">
+Here's our list wrapped in quotes again, this time using a list comprehension
+</div>
 
 ###
 
 #### Talking To JSS
+
+`pip install python-jss`
+
+Then create preferences using `default`.
+
+###
 
 First we get our JSS object
 
@@ -634,6 +730,8 @@ import jss
 jss_prefs = jss.JSSPrefs()
 j = jss.JSS(jss_prefs)
 ```
+
+###
 
 Get the computer list
 
@@ -644,6 +742,8 @@ j.Computer()
 Notice that python-jss pretty prints the list. Note also
 that it doesn't retrieve all the information, just the name
 and id.
+
+###
 
 Put the result in a variable and
 format it yourself.
@@ -669,13 +769,14 @@ We can view that with `less` using the `page` magic.
 page example
 ```
 
+###
+
 Some information is easily retrieved
 
 ```
 example.serial_number
 example.mac_addresses
 ```
-
 
 ###
 
@@ -687,6 +788,7 @@ of nodes that match our search string. `find()` returns a single child node that
 matches.
 
 ```
+
 x = example.findall('.//application')
 for i in x:
     nm = i.find('name')
@@ -694,6 +796,8 @@ for i in x:
     path = i.find('path')
     print nm.text, ver.text, path.text
 ```
+
+###
 
 Rather than print it let's gather the info.
 
@@ -726,11 +830,22 @@ Now iterate over them
 
 ```
 for computer in all_computers:
+	name = computer.findtext('name')
     model = computer.findtext('model')
     os = computer.findtext('os_version')
+    print name ":" model ":" os 
 ```
 
-### Let's Explore
+###
+
+#### Further Places
+
+- [Dive Into Python](http://www.diveintopython.net) - A good tutorial for experience programmers
+- [Python Programming For Beginners](http://www.linuxjournal.com/article/3946) - Good tutorial 
+  for writing command line tools.
+- [python-jss](https://github.com/sheagcraig/python-jss) - python-jss home page on github
+- [ElementTree](https://docs.python.org/2/library/xml.etree.elementtree.html) - ElementTree at python docs
+- [ElementTree overview](http://effbot.org/zone/element-index.htm) - ElementTree tutorial
 
 
 

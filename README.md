@@ -21,12 +21,14 @@ generated using `Marked 2` and `Export as, Save PDF`.
 | File                 | Description                                |
 | -------------------- | ------------------------------------------ |
 | Input-Font.zip       | The Input font - my favourite for Terminal |
+| PYTHONPATH.txt       | Line to add to bash profile for PYTHON |
 | README.md            | This file |
 | XW16-Empty.jpg       | Background for slides |
 | empty_1.txt          | Empty file used for examples |
 | empty_2.txt          | Empty file used for examples |
 | empty_3.txt          | Empty file used for examples |
 | index.html           | The presentation slides |
+| jss.txt              | Commands to create preferences for python-jss |
 | pandoc.sh            | command line to run Pandoc and create slideshow |
 | pandoc-print.sh      | command line to create `print.html` |
 | print.html           | special edition of slides without background for creating PDF |
