@@ -1,11 +1,7 @@
-#### Charming The Snake
-#### Python For System Admins
-##### Tony Williams
-###### System Engineer
+#### Charming The Snake <br/> Python For System Admins
+##### Tony Williams <br/> Systems Engineer
 
-###
-
-#### What We Will Talk About
+### What We Will Talk About
 
 * A short introduction to Python
 * IPython
@@ -15,9 +11,7 @@
 	* More Python
 	* Talking to JSS
 
-###
-
-#### Python as a calculator
+### Python as a calculator
 
 The interpreter acts as a simple calculator: you can type an expression 
 at it and it will write the value. Expression syntax is straightforward: 
@@ -35,6 +29,7 @@ For example:
 >>> 8 / 5.0
 1.6
 ```
+
 <div class="notes">
 Notice that numbers are not enclosed by quotes or anything else. There
 are two types of numbers, integers and floating point. If you use a
@@ -57,7 +52,7 @@ no result is displayed before the next interactive prompt:
 If a variable is not “defined” (assigned a value), trying to use it will
 give you an error:
 
-```
+``` python
 >>>
 >>> n  # try to access an undefined variable
 Traceback (most recent call last):
@@ -71,7 +66,7 @@ In interactive mode, the last printed expression is assigned to the
 variable _. This means that when you are using Python as a desk
 calculator, it is somewhat easier to continue calculations, for example:
 
-```
+``` python
 >>>
 >>> tax = 12.5 / 100
 >>> price = 100.50
@@ -81,9 +76,7 @@ calculator, it is somewhat easier to continue calculations, for example:
 113.0625
 ```
 
-###
-
-#### Strings
+### Strings
 
 Besides numbers, Python can also manipulate strings, which can be
 expressed in several ways.  They can be enclosed in single quotes
@@ -107,14 +100,12 @@ expressed in several ways.  They can be enclosed in single quotes
 '"Isn't," she said.'
 ```
 
-###
-
-#### Triple quotes
+### Triple quotes
 
 String literals can span multiple lines and include white space. One way
 is using triple-quotes: """...""" or '''...'''. End of lines are
 automatically included in the string, but it’s possible to prevent this
-by adding a \ at the end of the line. The following example:
+by adding a `\` at the end of the line. The following example:
 
 ``` python
 print ("""\
@@ -134,9 +125,8 @@ You will often see string literals enclosed in triple quotes at the top
 of function definitions. These are called "docstrings"  and are used to
 build the help system in Python.
 </div>
-###
 
-#### Concatenation
+### Concatenation
 
 Strings can be concatenated (glued together) with the + operator, and repeated with *:
 
@@ -198,13 +188,12 @@ This feature is particularly useful when you want to break long strings:
 ###
 
 #### Moving On To IPython
+
 <div class="notes">
 At this point let's move on to a better Python interpreter - IPython.
 </div>
 
-###
-
-#### Starting IPython
+### Starting IPython
 
 | command	         | description                                       |
 |:-------------------|:--------------------------------------------------| 
@@ -226,9 +215,7 @@ shown to you in a banner, every time you start IPython:
 | help	    | Python’s own help system.                                 |
 | object?	| Details about ‘object’, use ‘object??’ for extra details. |
 
-###
-
-#### Lists
+### Lists
 
 - Surrounded by "[]"
 - Ordered
@@ -242,19 +229,18 @@ item is item 0. They can contain any type, indeed they can contain a mix
 of types, including a list.
 </div>
 
-###
-
 ``` python
 lst = ["apple", "banana", "orange", 22, "pear"]
 lst[0]
 lst[2]
 lst[3] + 7
 ```
+
 <div class="notes">
 Let's look at some operations on lists.
 </div>
 
-#### Slicing Lists
+### Slicing Lists
 
 ```  python
 lst[1:3]
@@ -263,15 +249,15 @@ lst[3:]
 lst[:-2]
 lst[-3:]
 ```
+
 <div class="notes">
 You can slice a list by specifying the start and end of the slice. Just
 the end implies a start of 1 and just the first implies from there to
 the end of the list. You can specify a negative number to count from the
 end back.
 </div>
-###
 
-#### Dictionaries
+### Dictionaries
 
 - A key and a value (think of a plist)
 - Surrounded by "{}"
@@ -287,17 +273,13 @@ similar to a plist. They don't have a fixed order so you may find that
 when you print one it comes out different to how you defined it.
 </div>
 
-###
-
 ```python
 dict = {'x': 12, 'y': 22, 'z': 2}
 dict
 dict['x']
 ```
 
-###
-
-#### Flow Control
+### Flow Control
 
 <div class="notes">
 Now we can have a look at how we control our code.
@@ -306,21 +288,22 @@ Now we can have a look at how we control our code.
 #### Decisions, Decisions
 
 ``` python
-num = 3
-if num > 2:
+num = 4
+if num > 3:
+	print "Biggest"
+elif num > 3:
 	print "Big"
-else:
+else
 	print "Small"
 ```
+
 <div class="notes">
 Just as you might have seen in `bash` Python has an 'if' statement. Now
 indentation is meaningful in Python, see the indentation rather than the
 `do` and `done` you would see in Bash. Also notice the colon character.
 </div>
 
-###
-
-#### Loops
+### Loops
 
 ``` python
 tm = 1
@@ -329,29 +312,32 @@ while tm >= 10:
 	tm = tm + 1
 ```
 
-```python
+``` python
 for x in range(1,11):
 	print x
 ```
 
+<div class="notes">
+A "while" loop will loop until a condition becomes false. A "for" loop
+</div>
+
 ###
 
-```python
+``` python
 collection = ['hey', 5, 'd']
 for x in collection:
     print x
 ```
 
-```python
+``` python
 list_of_lists = [ [1, 2, 3], [4, 5, 6], [7, 8, 9]]
 for list in list_of_lists:
     for x in list:
         print x
 ```
 
-###
+### Tab completion
 
-#### Tab completion
 Tab completion, especially for attributes, is a convenient way to
 explore the structure of any object you’re dealing with. Simply type
 `object_name.<TAB>` to view the object’s attributes. Besides Python
@@ -359,13 +345,14 @@ objects and keywords, tab completion also works on file and directory
 names.
 
 #### Exploring your objects
+
 Typing `object_name?` will print all sorts of details about any object,
 including docstrings, function definition lines (for call arguments) and
 constructor details for classes. To get specific information on an
 object, you can use the magic commands %pdoc, %pdef, %psource and %pfile
 
-###
-#### Magic functions
+### Magic functions
+
 IPython has a set of predefined ‘magic functions’ that you can call with
 a command line style syntax. There are two kinds of magics,
 line-oriented and cell-oriented. Line magics are prefixed with the %
@@ -377,7 +364,8 @@ line, but also the lines below it in a separate argument.
 
 The following examples show how to call the builtin %timeit magic, both
 in line and cell mode:
-```
+
+``` python
 In [1]: %timeit range(1000)
 100000 loops, best of 3: 7.76 us per loop
 
@@ -388,6 +376,7 @@ In [2]: %%timeit x = range(10000)
 ```
 
 ###
+
 **The builtin magics include:**
 
  * **Functions that work with code:** %run, %edit, %save, %macro, %recall, etc.
@@ -396,9 +385,11 @@ In [2]: %%timeit x = range(10000)
 
 You can always call them using the % prefix, and if you’re calling a
 line magic on a line by itself, you can omit even that:
+
 ```
 run thescript.py
 ```
+
 You can toggle this behavior by running the %automagic magic. Cell
 magics must always have the %% prefix.
 
@@ -407,9 +398,8 @@ calling %magic, and for more details on any magic function, call
 %somemagic? to read its docstring. To see all the available magic
 functions, call %lsmagic.
 
-###
+### History
 
-#### History
 IPython stores the commands you enter and the results.
 You can go through previous commands with the up- and down-arrow keys,
 or access your history in more sophisticated ways.
@@ -422,6 +412,8 @@ You can use the %history magic function to examine past input and
 output. Input history from previous sessions is saved in a database, and
 IPython can be configured to save output history.
 
+###
+
 Several other magic functions can use your input history, including
 %edit, %rerun, %recall, %macro, %save and %pastebin. You can use a
 standard format to refer to lines:
@@ -433,8 +425,7 @@ standard format to refer to lines:
 This will take line 3 and lines 18 to 20 from the current session, and
 lines 1-5 from the previous session.
 
-###
-#### Explore The Magic Functions
+### Explore The Magic Functions
 
 ##### %bookmark
 
@@ -453,6 +444,7 @@ there is such a bookmark defined. (The latter is why I usually use two or three 
 bookmark names.)
 
 ###
+
 ##### %cd
 
 The `cd` magic is necessary (and nicely enhanced) as the system `cd`
@@ -495,7 +487,7 @@ variable.
 Here are some prompt configurations you can try out interactively by
 using the %config magic:
 
-```
+``` python
 %config PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}\
 [{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
 %config PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
@@ -507,7 +499,7 @@ using the %config magic:
 You can change the prompt configuration to your liking permanently by
 editing ipython_config.py:
 
-```
+``` python
 c.PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}\
 [{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
 c.PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
@@ -516,9 +508,7 @@ c.PromptManager.out_template = r'<\#> '
 
 Read more about the configuration system for details on how to find ipython_config.py.
 
-###
-
-#### More About Lists
+### More About Lists
 
 #### String lists
 
@@ -527,14 +517,15 @@ from system commands. They are produced by `var = !cmd` syntax.
 
 First, we acquire the output of `ls -l`:
 
-```
+``` python
 In [4]: lines = !ls -l
+```
 
 ###
 
 Now, let’s take a look at the contents of ‘lines’:
 
-```
+``` python
 In [5]: lines
 Out[5]:
 ['total 22888',
@@ -560,7 +551,7 @@ Out[5]:
 
 SLists have special properties
 
-```
+``` python
 lines.p
 lines.n
 lines.s
@@ -573,8 +564,8 @@ some.
 
 Let’s filter out the ‘slides’ lines:
 
-```
-In [6]: lines.grep('empty',prune=1)
+``` python
+In [6]: lines.grep('slides',prune=1)
 Out[6]:
 ['total 22888',
  '-rw-r--r--@  1 tonyw  staff  10129637 26 May 19:45 Input-Font.zip',
@@ -591,7 +582,7 @@ Out[6]:
 
 Now, we want strings having just file names and permissions:
 
-```
+``` python
 In [8]: Out[6].fields(8,0)
 Out[8]:
 ['total',
@@ -602,7 +593,8 @@ Out[8]:
  'pandoc.sh -rwxr-xr-x@',
  'print.html -rw-r--r--',
  'reveal.js drwxr-xr-x@',
- 'solarized.zip -rw-r--r--@']```
+ 'solarized.zip -rw-r--r--@']
+```
 
 <div class="notes">
 Note how the line with ‘total’ does not raise IndexError.
@@ -612,7 +604,7 @@ Note how the line with ‘total’ does not raise IndexError.
 
 If you want to split these (yielding lists), call fields() without arguments:
 
-```
+``` python
 In [9]: _.fields()
 Out[9]:
 [['total'],
@@ -631,14 +623,13 @@ Out[9]:
 If you want to pass these separated with spaces to a command (typical
 for lists of files), use the .s property:
 
-```
+```  python
 In [10]: Out[6].fields(8).s
 Out[10]: 'Input-Font.zip README.md index.html pandoc-print.sh pandoc.sh print.html 
 reveal.js slides.md slides.pdf slides_notes.pdf solarized.zip'
 ```
-###
 
-#### More with Slists
+### More with Slists
 
 Let's start with a list of files.
 
@@ -649,21 +640,20 @@ utils = !ls
 
 We now have an Slist. Have a look at it.
 
-```
+``` python
 utils.p
 utils.n
 utils.s
 ```
 
 What's the problem with `utils.s`?
+
 <div class="notes">
 The problem we see here us that when there is a space in a file name it isn't
 treated properly by the 's' fucnction - it should be wrapped in quotes.
 </div>
 
-###
-
-#### Fixing the spaces
+### Fixing the spaces
 
 We're going to use `map`
 
@@ -681,18 +671,19 @@ them
 every member of the list that is it's second paramater.
 </div>
 
-#### List comprehension instead
+### List comprehension instead
 
 List comprehensions are a neat trick
 
 The basic syntax is
-[ expression for item in list if conditional ]
+[ expression `for` item `in` list `if` conditional ]
 
+``` python
+u = ['"' + i +'"' for i in utils]
+u
+```
 
 <div class="notes">
-
-#### List comprehensions
-
 List comprehensions provide a concise way to create lists. 
 
 It consists of brackets containing an expression followed by a for clause, then
@@ -701,35 +692,35 @@ put in all kinds of objects in lists.
 
 The result will be a new list resulting from evaluating the expression in the
 context of the for and if clauses which follow it. 
-</div>
 
-###
-
-``` python
-u = ['"' + i +'"' for i in utils]
-u
-```
-<div class="notes">
 Here's our list wrapped in quotes again, this time using a list comprehension
 </div>
 
-###
-
-#### Talking To JSS
+### Talking To The JSS
 
 `pip install python-jss`
 
 Then create preferences using `default`.
 
+<div class="notes">
+First we install the python-jss module, which talks to the JSS. Then we
+create a preferences file by using `default`. 
+</div>
+
 ###
 
 First we get our JSS object
 
-```
+``` python
 import jss
 jss_prefs = jss.JSSPrefs()
 j = jss.JSS(jss_prefs)
+
 ```
+<div class="notes">
+We start by importing the module then passing the preferences to a function
+that creates a JSS object.
+</div>
 
 ###
 
@@ -748,7 +739,7 @@ and id.
 Put the result in a variable and
 format it yourself.
 
-```
+``` python
 computers = j.Computer()
 for i in computers:
     print "id:"+str(i.id)+" name:"+i.name
@@ -758,14 +749,14 @@ for i in computers:
 
 Now get the record of one computer. This will get **all** the record.
 
-```
+``` python
 example = j.Computer(193)
 example
 ```
 
 We can view that with `less` using the `page` magic.
 
-```
+``` python
 page example
 ```
 
@@ -773,7 +764,7 @@ page example
 
 Some information is easily retrieved
 
-```
+``` python
 example.serial_number
 example.mac_addresses
 ```
@@ -781,14 +772,13 @@ example.mac_addresses
 ###
 
 Other information requires some XML work. XML is a tree of nodes and
-we have to work with those nodes.
+we have to work with those nodes. python-jss uses the ElementTree module.
  
 Let's get a list of installed applications. `findall()` will return a list
 of nodes that match our search string. `find()` returns a single child node that
 matches.
 
-```
-
+``` python
 x = example.findall('.//application')
 for i in x:
     nm = i.find('name')
@@ -801,7 +791,7 @@ for i in x:
 
 Rather than print it let's gather the info.
 
-```
+``` python
 o = []
 for i in x:
     nm = i.find('name')
@@ -813,22 +803,22 @@ o
 
 ### Further examples
 
-```
+``` python
 model = comp.findall('.//hardware/model_identifier')
 model[0].text
 os = comp.findall('.//os_version')
 os[0].text
 ```
 
-Lets get *all* the computer records. (_This might take a while._)
+Lets get *all* the computer records. (_This might take a while on your JSS._)
 
-```
+``` python
 all_computers = j.Computer().retrieve_all()
 ```
 
 Now iterate over them 
 
-```
+``` python
 for computer in all_computers:
 	name = computer.findtext('name')
     model = computer.findtext('model')
@@ -836,9 +826,7 @@ for computer in all_computers:
     print name ":" model ":" os 
 ```
 
-###
-
-#### Further Places
+### Further Places
 
 - [Dive Into Python](http://www.diveintopython.net) - A good tutorial for experience programmers
 - [Python Programming For Beginners](http://www.linuxjournal.com/article/3946) - Good tutorial 
@@ -846,8 +834,4 @@ for computer in all_computers:
 - [python-jss](https://github.com/sheagcraig/python-jss) - python-jss home page on github
 - [ElementTree](https://docs.python.org/2/library/xml.etree.elementtree.html) - ElementTree at python docs
 - [ElementTree overview](http://effbot.org/zone/element-index.htm) - ElementTree tutorial
-
-
-
-
 
