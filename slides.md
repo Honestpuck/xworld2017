@@ -185,6 +185,16 @@ This feature is particularly useful when you want to break long strings:
 
 #### Booleans
 
+`True` is `1` or `1.0` and everything else is `False`.
+
+| operator   | function              |
+| ==         | equals                |
+| !=         | not equals            |
+| >          | greater than          |
+| <          | less than             |
+| >=         | greater than or equal |
+| <=         | less than or equal    |
+
 ###
 
 #### Moving On To IPython
@@ -831,6 +841,7 @@ for computer in all_computers:
 - [Dive Into Python](http://www.diveintopython.net) - A good tutorial for experience programmers
 - [Python Programming For Beginners](http://www.linuxjournal.com/article/3946) - Good tutorial 
   for writing command line tools.
+- [PyObjC home page](https://pythonhosted.org/pyobjc/)
 - [python-jss](https://github.com/sheagcraig/python-jss) - python-jss home page on github
 - [ElementTree](https://docs.python.org/2/library/xml.etree.elementtree.html) - ElementTree at python docs
 - [ElementTree overview](http://effbot.org/zone/element-index.htm) - ElementTree tutorial
