@@ -84,3 +84,4 @@ def keys(appid, byHost=True):
     else:
         return list(keyList)
 
+preferences.read('com.apple.Finder', 'NSNavLastRootDirectory')

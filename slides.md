@@ -554,7 +554,7 @@ Out[5]:
  '-rw-r--r--@  1 tonyw  staff     19288 26 May 19:56 slides.md',
  '-rw-r--r--@  1 tonyw  staff    588576 26 May 20:20 slides.pdf',
  '-rw-r--r--@  1 tonyw  staff     95532 26 May 20:23 slides_notes.pdf',
- '-rw-r--r--@  1 tonyw  staff    379863 26 May 19:45 solarized.zip']```
+ '-rw-r--r--@  1 tonyw  staff    379863 26 May 19:45 solarized.zip']
 ```
 
 ###
@@ -706,6 +706,51 @@ context of the for and if clauses which follow it.
 Here's our list wrapped in quotes again, this time using a list comprehension
 </div>
 
+### PyObjC
+
+``` python
+from AppKit import NSScreen
+
+width = NSScreen.mainScreen().frame().size.width
+height = NSScreen.mainScreen().frame().size.height
+
+print height, width
+900.0 1440.0
+```
+
+<div class="notes">
+PyObjC is a bridge between Python and Objective-C that allows you to do some
+powerful things in Python without running any other software.
+</div>
+
+###
+
+#### Read a preference
+
+``` python
+from CoreFoundation import CFPreferencesCopyValue, \
+  kCFPreferencesCurrentUser, kCFPreferencesAnyHost
+
+v = CFPreferencesCopyValue('NSNavLastRootDirectory', 'com.apple.Finder', \
+  kCFPreferencesCurrentUser, kCFPreferencesAnyHost)
+print(v)
+```
+
+#### Write a preference value
+
+```
+CFPreferencesSetValue('FXConnectToLastURL', 'smb://example.com', 'com.apple.Finder', \
+  kCFPreferencesCurrentUser, kCFPreferencesAnyHost)
+
+# Required to force preferences to sync to .plist on disk
+CFPreferencesSynchronize('com.apple.Finder', kCFPreferencesCurrentUser, 
+  kCFPreferencesAnyHost)
+```
+
+<div class="notes">
+Here's a much more complex example from my co-presenter, Mosen.
+</div>
+
 ### Talking To The JSS
 
 `pip install python-jss`
@@ -714,7 +759,8 @@ Then create preferences using `default`.
 
 <div class="notes">
 First we install the python-jss module, which talks to the JSS. Then we
-create a preferences file by using `default`. 
+create a preferences file by using `default`. You will find the commands
+in `jss.txt` and the password is *****
 </div>
 
 ###
