@@ -181,13 +181,21 @@ This feature is particularly useful when you want to break long strings:
 'Put several strings within parentheses to have them joined together.'
 ```
 
-###
+### Unicode
+
+Python 2.x supports Unicode but you have to tell it a string *is* Unicode
+
+``` Python
+ustring = u'1024 \u00D7 768'
+print ustring
+```
 
 #### Booleans
 
 `True` is `1` or `1.0` and everything else is `False`.
 
 | operator   | function              |
+|:-----------|:----------------------|
 | ==         | equals                |
 | !=         | not equals            |
 | >          | greater than          |
@@ -346,6 +354,25 @@ for list in list_of_lists:
         print x
 ```
 
+### Functions
+
+- Use `def` keyword
+- May use `return` keyword
+
+``` python
+def hello_world():
+    print("Hello World!")
+    
+hello_world()
+```
+
+``` python
+def times_two(x):
+	return x * 2
+	
+times_two(21)
+```
+
 ### Tab completion
 
 Tab completion, especially for attributes, is a convenient way to
@@ -360,53 +387,6 @@ Typing `object_name?` will print all sorts of details about any object,
 including docstrings, function definition lines (for call arguments) and
 constructor details for classes. To get specific information on an
 object, you can use the magic commands %pdoc, %pdef, %psource and %pfile
-
-### Magic functions
-
-IPython has a set of predefined ‘magic functions’ that you can call with
-a command line style syntax. There are two kinds of magics,
-line-oriented and cell-oriented. Line magics are prefixed with the %
-character and work much like OS command-line calls: they get as an
-argument the rest of the line, where arguments are passed without
-parentheses or quotes. Cell magics are prefixed with a double %%, and
-they are functions that get as an argument not only the rest of the
-line, but also the lines below it in a separate argument.
-
-The following examples show how to call the builtin %timeit magic, both
-in line and cell mode:
-
-``` python
-In [1]: %timeit range(1000)
-100000 loops, best of 3: 7.76 us per loop
-
-In [2]: %%timeit x = range(10000)
-   ...: max(x)
-   ...:
-1000 loops, best of 3: 223 us per loop
-```
-
-###
-
-**The builtin magics include:**
-
- * **Functions that work with code:** %run, %edit, %save, %macro, %recall, etc.
- * **Functions which affect the shell:** %colors, %xmode, %autoindent, %automagic, etc.
- * **Other functions such as** %reset, %timeit, %%writefile, %load, or %paste.
-
-You can always call them using the % prefix, and if you’re calling a
-line magic on a line by itself, you can omit even that:
-
-```
-run thescript.py
-```
-
-You can toggle this behavior by running the %automagic magic. Cell
-magics must always have the %% prefix.
-
-A more detailed explanation of the magic system can be obtained by
-calling %magic, and for more details on any magic function, call
-%somemagic? to read its docstring. To see all the available magic
-functions, call %lsmagic.
 
 ### History
 
@@ -433,90 +413,16 @@ standard format to refer to lines:
 ```
 
 This will take line 3 and lines 18 to 20 from the current session, and
-lines 1-5 from the previous session.
-
-### Explore The Magic Functions
-
-##### %bookmark
-
-`bookmark` is a directory bookmarking system.
-
-| command               | description                 |
-|:----------------------|:----------------------------|
-| bookmark name         | set bookmark to current dir |
-| bookmark name dir     | set bookmark to dir         |
-| bookmark -l           | list all bookmarks          |
-| bookmark -d name      | remove bookmark             |
-| bookmark -r           | remove all bookmarks        |
-
-Then `cd -b <name>` or just `cd <name>` if there is no directory called <name> AND
-there is such a bookmark defined. (The latter is why I usually use two or three letter
-bookmark names.)
-
-###
-
-##### %cd
-
-The `cd` magic is necessary (and nicely enhanced) as the system `cd`
-won't work. It keeps a history of the directories visited.
-
-| command        | description                                        |
-|:---------------|:---------------------------------------------------|
-| cd             | changes to `~`                                     |
-| cd 'dir'       | changes to directory 'dir'                         |
-| cd -           | changes to previous directory                      |
-| cd -`<n>`      | changes to directory `<n>` in directory history    |
-| cd --foo       | changes to directory that matches 'foo' in history | 
-| cd -b `<name>` | jump to bookmark `<name>`                          |
-
-`%dhist` prints the directory history and `%dhist <n>` prints the last `<n>` entries.
-
-### 
-
-##### The directory stack
-
-As well as a history of directories IPython also has a directory stack.
-
-| command       | description                                      |
-|:--------------|:-------------------------------------------------|
-| dirs          | list directory stack                             |
-| pushd         | push the current directory onto the stack        |
-| pushd `<dir>` | push the current directory and cd to `<dir>`     |
-| popd          | pop the top directory off the stack and cd to it |
-
-###
+lines 1-5 from the previous session and place them on the clipboard.
 
 ##### %edit
 
 `edit` opens things in the editor you have defined in your $EDITOR environment
-variable. 
-###
+variable.
 
-#### Prompt customization
-
-Here are some prompt configurations you can try out interactively by
-using the %config magic:
-
-``` python
-%config PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}\
-[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
-%config PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
-%config PromptManager.out_template = r'<\#> '
+``` Python
+%edit times_two
 ```
-
-###
-
-You can change the prompt configuration to your liking permanently by
-editing ipython_config.py:
-
-``` python
-c.PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}\
-[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
-c.PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
-c.PromptManager.out_template = r'<\#> '
-```
-
-Read more about the configuration system for details on how to find ipython_config.py.
 
 ### More About Lists
 
@@ -530,6 +436,10 @@ First, we acquire the output of `ls -l`:
 ``` python
 In [4]: lines = !ls -l
 ```
+
+<div class="notes">
+String lists and the `!ls` form are *only* available in IPython.
+</div>
 
 ###
 
@@ -704,6 +614,115 @@ The result will be a new list resulting from evaluating the expression in the
 context of the for and if clauses which follow it. 
 
 Here's our list wrapped in quotes again, this time using a list comprehension
+</div>
+
+### Standard Libraries
+
+- re - regular expressions
+- datetime, calendar & time - time & date functionality
+- random - for non-secure randomness
+- sys - system specific functionality, specifically access to command line args, 
+  python path & exit
+ 
+####  File APIs
+
+These parts of the standard library allow you to interact with files & the file system.
+
+- os - provides basics like open, mkdir, stat, rmdir, remove and walk
+- os.path - everything needed for path manipulation, including join, dirname, basename & exists
+- tempfile - create temporary files & directories
+- glob - unix style pattern matching (i.e. *.gif)
+- shutil - high level file ops like copy, move, copytree and rmtree (you can lose metadata)
+
+### Running Commands
+
+#### Subprocess module
+
+Call external shell commands
+
+|                         | *Returns*                  |
+|:------------------------|:---------------------------|
+| subprocess.call         | Return code                |
+| subprocess.check_call   | Return code or exception   |
+| subprocess.check_output | Output string or exception |
+
+<div class="notes">
+To run a shell command we use `subprocess`. First we call it
+with subprocess.call the check the return with check_call and/or
+check_output.
+</div>
+
+###
+
+```
+import subprocess
+cmd_str = '/usr/bin/dsmemberutil checkmembership \
+-U tonyw -G admin'
+cmd = cmd_str.split()
+
+retcode = subprocess.call(cmd)
+checkcode = subprocess.check_call(cmd)
+output = subprocess.check_output(cmd)
+```
+
+<div class="notes">
+Let's have a look at an example.
+</div>
+
+### Working With Files
+
+#### Joining Paths
+
+```
+import os
+silverlight_plugin_path = os.path.join("/", \
+    "Library", \
+    "Internet Plug-Ins", \
+    "Silverlight.plugin")
+print(silverlight_plugin_path)
+/Library/Internet Plug-Ins/Silverlight.plugin
+```
+
+#### Manipulating Paths
+
+```
+os.path.basename(silverlight_plugin_path)
+'Silverlight.plugin'
+os.path.dirname(silverlight_plugin_path)
+'/Library/Internet Plug-Ins'
+os.path.splitext("com.apple.Safari.plist")
+('com.apple.Safari', '.plist')
+```
+
+###
+
+#### Tests on Files
+
+```
+os.path.exists(silverlight_plugin_path)
+True
+os.path.isdir(silverlight_plugin_path)
+True
+os.path.islink("/etc")
+True
+```
+
+#### glob
+
+```
+import glob
+osx_install = glob.glob("/Applications/" \
+    "Install*OS X*.app")
+print(osx_install)
+['/Applications/Install Mac OS X Lion.app',
+ '/Applications/Install OS X Mountain
+Lion.app']
+```
+
+<div class="notes">
+- Equivalent to shell globbing 
+- Returns matching path(s) as a list
+- glob uses the fnmatch module
 </div>
 
 ### PyObjC

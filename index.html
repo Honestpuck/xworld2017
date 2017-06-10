@@ -196,11 +196,49 @@ Traceback (most recent call last):
 <span class="op">&gt;&gt;&gt;</span> text
 <span class="co">&#39;Put several strings within parentheses to have them joined together.&#39;</span></code></pre></div>
 </section>
-<section id="section-4" class="slide level3">
-<h3></h3>
+<section id="unicode" class="slide level3">
+<h3>Unicode</h3>
+<p>Python 2.x supports Unicode but you have to tell it a string <em>is</em> Unicode</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ustring <span class="op">=</span> <span class="st">u&#39;1024 </span><span class="ch">\u00D7</span><span class="st"> 768&#39;</span>
+<span class="bu">print</span> ustring</code></pre></div>
 <h4 id="booleans">Booleans</h4>
+<p><code>True</code> is <code>1</code> or <code>1.0</code> and everything else is <code>False</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">operator</th>
+<th style="text-align: left;">function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">==</td>
+<td style="text-align: left;">equals</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">!=</td>
+<td style="text-align: left;">not equals</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;</td>
+<td style="text-align: left;">greater than</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: left;">less than</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;=</td>
+<td style="text-align: left;">greater than or equal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;=</td>
+<td style="text-align: left;">less than or equal</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="section-5" class="slide level3">
+<section id="section-4" class="slide level3">
 <h3></h3>
 <h4 id="moving-on-to-ipython">Moving On To IPython</h4>
 <aside class="notes">
@@ -240,7 +278,7 @@ Traceback (most recent call last):
 </tbody>
 </table>
 </section>
-<section id="section-6" class="slide level3">
+<section id="section-5" class="slide level3">
 <h3></h3>
 <p>The four most helpful commands, as well as their brief description, are shown to you in a banner, every time you start IPython:</p>
 <table>
@@ -273,7 +311,7 @@ Traceback (most recent call last):
 <section id="lists" class="slide level3">
 <h3>Lists</h3>
 <ul>
-<li>Surrounded by &quot;<a href="#/section-26"></a>&quot;</li>
+<li>Surrounded by &quot;<a href="#/section-22"></a>&quot;</li>
 <li>Ordered</li>
 <li>Indexed at 0</li>
 <li>Can contain any type or mixed types</li>
@@ -349,7 +387,7 @@ lst[<span class="op">-</span><span class="dv">3</span>:]</code></pre></div>
 <p>A &quot;while&quot; loop will loop until a condition becomes false. A &quot;for&quot; loop</p>
 </aside>
 </section>
-<section id="section-7" class="slide level3">
+<section id="section-6" class="slide level3">
 <h3></h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">collection <span class="op">=</span> [<span class="st">&#39;hey&#39;</span>, <span class="dv">5</span>, <span class="st">&#39;d&#39;</span>]
 <span class="cf">for</span> x <span class="kw">in</span> collection:
@@ -359,36 +397,26 @@ lst[<span class="op">-</span><span class="dv">3</span>:]</code></pre></div>
     <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">list</span>:
         <span class="bu">print</span> x</code></pre></div>
 </section>
+<section id="functions" class="slide level3">
+<h3>Functions</h3>
+<ul>
+<li>Use <code>def</code> keyword</li>
+<li>May use <code>return</code> keyword</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> hello_world():
+    <span class="bu">print</span>(<span class="st">&quot;Hello World!&quot;</span>)
+    
+hello_world()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> times_two(x):
+    <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span>
+    
+times_two(<span class="dv">21</span>)</code></pre></div>
+</section>
 <section id="tab-completion" class="slide level3">
 <h3>Tab completion</h3>
 <p>Tab completion, especially for attributes, is a convenient way to explore the structure of any object you’re dealing with. Simply type <code>object_name.&lt;TAB&gt;</code> to view the object’s attributes. Besides Python objects and keywords, tab completion also works on file and directory names.</p>
 <h4 id="exploring-your-objects">Exploring your objects</h4>
 <p>Typing <code>object_name?</code> will print all sorts of details about any object, including docstrings, function definition lines (for call arguments) and constructor details for classes. To get specific information on an object, you can use the magic commands %pdoc, %pdef, %psource and %pfile</p>
-</section>
-<section id="magic-functions" class="slide level3">
-<h3>Magic functions</h3>
-<p>IPython has a set of predefined ‘magic functions’ that you can call with a command line style syntax. There are two kinds of magics, line-oriented and cell-oriented. Line magics are prefixed with the % character and work much like OS command-line calls: they get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Cell magics are prefixed with a double %%, and they are functions that get as an argument not only the rest of the line, but also the lines below it in a separate argument.</p>
-<p>The following examples show how to call the builtin %timeit magic, both in line and cell mode:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">In [<span class="dv">1</span>]: <span class="op">%</span>timeit <span class="bu">range</span>(<span class="dv">1000</span>)
-<span class="dv">100000</span> loops, best of <span class="dv">3</span>: <span class="fl">7.76</span> us per loop
-
-In [<span class="dv">2</span>]: <span class="op">%%</span>timeit x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10000</span>)
-   ...: <span class="bu">max</span>(x)
-   ...:
-<span class="dv">1000</span> loops, best of <span class="dv">3</span>: <span class="dv">223</span> us per loop</code></pre></div>
-</section>
-<section id="section-8" class="slide level3">
-<h3></h3>
-<p><strong>The builtin magics include:</strong></p>
-<ul>
-<li><strong>Functions that work with code:</strong> %run, %edit, %save, %macro, %recall, etc.</li>
-<li><strong>Functions which affect the shell:</strong> %colors, %xmode, %autoindent, %automagic, etc.</li>
-<li><strong>Other functions such as</strong> %reset, %timeit, %%writefile, %load, or %paste.</li>
-</ul>
-<p>You can always call them using the % prefix, and if you’re calling a line magic on a line by itself, you can omit even that:</p>
-<pre><code>run thescript.py</code></pre>
-<p>You can toggle this behavior by running the %automagic magic. Cell magics must always have the %% prefix.</p>
-<p>A more detailed explanation of the magic system can be obtained by calling %magic, and for more details on any magic function, call %somemagic? to read its docstring. To see all the available magic functions, call %lsmagic.</p>
 </section>
 <section id="history" class="slide level3">
 <h3>History</h3>
@@ -396,138 +424,14 @@ In [<span class="dv">2</span>]: <span class="op">%%</span>timeit x <span class="
 <p>Input and output history are kept in variables called In and Out, keyed by the prompt numbers, e.g. In[4]. The last three objects in output history are also kept in variables named <code>_</code>, <code>__</code> and <code>___</code>.</p>
 <p>You can use the %history magic function to examine past input and output. Input history from previous sessions is saved in a database, and IPython can be configured to save output history.</p>
 </section>
-<section id="section-9" class="slide level3">
+<section id="section-7" class="slide level3">
 <h3></h3>
 <p>Several other magic functions can use your input history, including %edit, %rerun, %recall, %macro, %save and %pastebin. You can use a standard format to refer to lines:</p>
 <pre><code>%pastebin 3 18-20 ~1/1-5</code></pre>
-<p>This will take line 3 and lines 18 to 20 from the current session, and lines 1-5 from the previous session.</p>
-</section>
-<section id="explore-the-magic-functions" class="slide level3">
-<h3>Explore The Magic Functions</h3>
-<h5 id="bookmark">%bookmark</h5>
-<p><code>bookmark</code> is a directory bookmarking system.</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">command</th>
-<th style="text-align: left;">description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">bookmark name</td>
-<td style="text-align: left;">set bookmark to current dir</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bookmark name dir</td>
-<td style="text-align: left;">set bookmark to dir</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bookmark -l</td>
-<td style="text-align: left;">list all bookmarks</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bookmark -d name</td>
-<td style="text-align: left;">remove bookmark</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bookmark -r</td>
-<td style="text-align: left;">remove all bookmarks</td>
-</tr>
-</tbody>
-</table>
-<p>Then <code>cd -b &lt;name&gt;</code> or just <code>cd &lt;name&gt;</code> if there is no directory called <name> AND there is such a bookmark defined. (The latter is why I usually use two or three letter bookmark names.)</p>
-</section>
-<section id="section-10" class="slide level3">
-<h3></h3>
-<h5 id="cd">%cd</h5>
-<p>The <code>cd</code> magic is necessary (and nicely enhanced) as the system <code>cd</code> won't work. It keeps a history of the directories visited.</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">command</th>
-<th style="text-align: left;">description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">cd</td>
-<td style="text-align: left;">changes to <code>~</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cd 'dir'</td>
-<td style="text-align: left;">changes to directory 'dir'</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cd -</td>
-<td style="text-align: left;">changes to previous directory</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cd -<code>&lt;n&gt;</code></td>
-<td style="text-align: left;">changes to directory <code>&lt;n&gt;</code> in directory history</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cd --foo</td>
-<td style="text-align: left;">changes to directory that matches 'foo' in history</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cd -b <code>&lt;name&gt;</code></td>
-<td style="text-align: left;">jump to bookmark <code>&lt;name&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<p><code>%dhist</code> prints the directory history and <code>%dhist &lt;n&gt;</code> prints the last <code>&lt;n&gt;</code> entries.</p>
-</section>
-<section id="section-11" class="slide level3">
-<h3></h3>
-<h5 id="the-directory-stack">The directory stack</h5>
-<p>As well as a history of directories IPython also has a directory stack.</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">command</th>
-<th style="text-align: left;">description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">dirs</td>
-<td style="text-align: left;">list directory stack</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">pushd</td>
-<td style="text-align: left;">push the current directory onto the stack</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pushd <code>&lt;dir&gt;</code></td>
-<td style="text-align: left;">push the current directory and cd to <code>&lt;dir&gt;</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">popd</td>
-<td style="text-align: left;">pop the top directory off the stack and cd to it</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="section-12" class="slide level3">
-<h3></h3>
+<p>This will take line 3 and lines 18 to 20 from the current session, and lines 1-5 from the previous session and place them on the clipboard.</p>
 <h5 id="edit">%edit</h5>
-<p><code>edit</code> opens things in the editor you have defined in your $EDITOR environment variable. ###</p>
-<h4 id="prompt-customization">Prompt customization</h4>
-<p>Here are some prompt configurations you can try out interactively by using the %config magic:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%</span>config PromptManager.in_template <span class="op">=</span> <span class="vs">r&#39;</span><span class="sc">{color.LightGreen}</span><span class="vs">\u@\h</span><span class="sc">{color.LightBlue}</span><span class="vs">\</span>
-<span class="vs">[</span><span class="sc">{color.LightCyan}</span><span class="vs">\Y1</span><span class="sc">{color.LightBlue}</span><span class="vs">]</span><span class="sc">{color.Green}</span><span class="vs">|\#&gt; &#39;</span>
-<span class="op">%</span>config PromptManager.in2_template <span class="op">=</span> <span class="vs">r&#39;</span><span class="sc">{color.Green}</span><span class="vs">|</span><span class="sc">{color.LightGreen}</span><span class="vs">\D</span><span class="sc">{color.Green}</span><span class="vs">&gt; &#39;</span>
-<span class="op">%</span>config PromptManager.out_template <span class="op">=</span> <span class="vs">r&#39;&lt;\#&gt; &#39;</span></code></pre></div>
-</section>
-<section id="section-13" class="slide level3">
-<h3></h3>
-<p>You can change the prompt configuration to your liking permanently by editing ipython_config.py:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">c.PromptManager.in_template <span class="op">=</span> <span class="vs">r&#39;</span><span class="sc">{color.LightGreen}</span><span class="vs">\u@\h</span><span class="sc">{color.LightBlue}</span><span class="vs">\</span>
-<span class="vs">[</span><span class="sc">{color.LightCyan}</span><span class="vs">\Y1</span><span class="sc">{color.LightBlue}</span><span class="vs">]</span><span class="sc">{color.Green}</span><span class="vs">|\#&gt; &#39;</span>
-c.PromptManager.in2_template <span class="op">=</span> <span class="vs">r&#39;</span><span class="sc">{color.Green}</span><span class="vs">|</span><span class="sc">{color.LightGreen}</span><span class="vs">\D</span><span class="sc">{color.Green}</span><span class="vs">&gt; &#39;</span>
-c.PromptManager.out_template <span class="op">=</span> <span class="vs">r&#39;&lt;\#&gt; &#39;</span></code></pre></div>
-<p>Read more about the configuration system for details on how to find ipython_config.py.</p>
+<p><code>edit</code> opens things in the editor you have defined in your $EDITOR environment variable.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%</span>edit times_two</code></pre></div>
 </section>
 <section id="more-about-lists" class="slide level3">
 <h3>More About Lists</h3>
@@ -535,8 +439,11 @@ c.PromptManager.out_template <span class="op">=</span> <span class="vs">r&#39;&l
 <p>String lists (IPython.utils.text.SList) are a handy way to process output from system commands. They are produced by <code>var = !cmd</code> syntax.</p>
 <p>First, we acquire the output of <code>ls -l</code>:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">In [<span class="dv">4</span>]: lines <span class="op">=</span> <span class="op">!</span>ls <span class="op">-</span>l</code></pre></div>
+<aside class="notes">
+<p>String lists and the <code>!ls</code> form are <em>only</em> available in IPython.</p>
+</aside>
 </section>
-<section id="section-14" class="slide level3">
+<section id="section-8" class="slide level3">
 <h3></h3>
 <p>Now, let’s take a look at the contents of ‘lines’:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">In [<span class="dv">5</span>]: lines
@@ -557,16 +464,16 @@ Out[<span class="dv">5</span>]:
  <span class="st">&#39;-rw-r--r--@  1 tonyw  staff     19288 26 May 19:56 slides.md&#39;</span>,
  <span class="st">&#39;-rw-r--r--@  1 tonyw  staff    588576 26 May 20:20 slides.pdf&#39;</span>,
  <span class="st">&#39;-rw-r--r--@  1 tonyw  staff     95532 26 May 20:23 slides_notes.pdf&#39;</span>,
- <span class="st">&#39;-rw-r--r--@  1 tonyw  staff    379863 26 May 19:45 solarized.zip&#39;</span>]```</code></pre></div>
+ <span class="st">&#39;-rw-r--r--@  1 tonyw  staff    379863 26 May 19:45 solarized.zip&#39;</span>]</code></pre></div>
 </section>
-<section id="section-15" class="slide level3">
+<section id="section-9" class="slide level3">
 <h3></h3>
 <p>SLists have special properties</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">lines.p
 lines.n
 lines.s</code></pre></div>
 </section>
-<section id="section-16" class="slide level3">
+<section id="section-10" class="slide level3">
 <h3></h3>
 <p>SLists also inherit all the properties of strings. Let's have a look at some.</p>
 <p>Let’s filter out the ‘slides’ lines:</p>
@@ -582,7 +489,7 @@ Out[<span class="dv">6</span>]:
  <span class="st">&#39;drwxr-xr-x@ 16 tonyw  staff       544 26 May 11:31 reveal.js&#39;</span>,
  <span class="st">&#39;-rw-r--r--@  1 tonyw  staff    379863 26 May 19:45 solarized.zip&#39;</span>]</code></pre></div>
 </section>
-<section id="section-17" class="slide level3">
+<section id="section-11" class="slide level3">
 <h3></h3>
 <p>Now, we want strings having just file names and permissions:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">In [<span class="dv">8</span>]: Out[<span class="dv">6</span>].fields(<span class="dv">8</span>,<span class="dv">0</span>)
@@ -600,7 +507,7 @@ Out[<span class="dv">8</span>]:
 <p>Note how the line with ‘total’ does not raise IndexError.</p>
 </aside>
 </section>
-<section id="section-18" class="slide level3">
+<section id="section-12" class="slide level3">
 <h3></h3>
 <p>If you want to split these (yielding lists), call fields() without arguments:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">In [<span class="dv">9</span>]: _.fields()
@@ -615,7 +522,7 @@ Out[<span class="dv">9</span>]:
  [<span class="st">&#39;reveal.js&#39;</span>, <span class="st">&#39;drwxr-xr-x@&#39;</span>],
  [<span class="st">&#39;solarized.zip&#39;</span>, <span class="st">&#39;-rw-r--r--@&#39;</span>]]</code></pre></div>
 </section>
-<section id="section-19" class="slide level3">
+<section id="section-13" class="slide level3">
 <h3></h3>
 <p>If you want to pass these separated with spaces to a command (typical for lists of files), use the .s property:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">In [<span class="dv">10</span>]: Out[<span class="dv">6</span>].fields(<span class="dv">8</span>).s
@@ -662,15 +569,132 @@ u</code></pre></div>
 <p>Here's our list wrapped in quotes again, this time using a list comprehension</p>
 </aside>
 </section>
+<section id="running-commands" class="slide level3">
+<h3>Running Commands</h3>
+<h4 id="subprocess-module">Subprocess module</h4>
+<p>Call external shell commands</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;"><em>Returns</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">subprocess.call</td>
+<td style="text-align: left;">Return code</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">subprocess.check_call</td>
+<td style="text-align: left;">Return code or exception</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">subprocess.check_output</td>
+<td style="text-align: left;">Output string or exception</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>To run a shell command we use <code>subprocess</code>. First we call it with subprocess.call the check the return with check_call and/or check_output.</p>
+</aside>
+</section>
+<section id="section-14" class="slide level3">
+<h3></h3>
+<pre><code>import subprocess
+cmd_str = &#39;/usr/bin/dsmemberutil checkmembership \
+-U tonyw -G admin&#39;
+cmd = cmd_str.split()
+
+retcode = subprocess.call(cmd)
+checkcode = subprocess.check_call(cmd)
+output = subprocess.check_output(cmd)</code></pre>
+<aside class="notes">
+<p>Let's have a look at an example.</p>
+</aside>
+</section>
+<section id="working-with-files" class="slide level3">
+<h3>Working With Files</h3>
+<h4 id="joining-paths">Joining Paths</h4>
+<pre><code>import os
+silverlight_plugin_path = os.path.join(&quot;/&quot;, \
+    &quot;Library&quot;, \
+    &quot;Internet Plug-Ins&quot;, \
+    &quot;Silverlight.plugin&quot;)
+print(silverlight_plugin_path)
+/Library/Internet Plug-Ins/Silverlight.plugin</code></pre>
+<h4 id="manipulating-paths">Manipulating Paths</h4>
+<pre><code>os.path.basename(silverlight_plugin_path)
+&#39;Silverlight.plugin&#39;
+os.path.dirname(silverlight_plugin_path)
+&#39;/Library/Internet Plug-Ins&#39;
+os.path.splitext(&quot;com.apple.Safari.plist&quot;)
+(&#39;com.apple.Safari&#39;, &#39;.plist&#39;)</code></pre>
+<h4 id="tests-on-files">Tests on Files</h4>
+<pre><code>os.path.exists(silverlight_plugin_path)
+True
+os.path.isdir(silverlight_plugin_path)
+True
+os.path.islink(&quot;/etc&quot;)
+True</code></pre>
+<h4 id="glob">glob</h4>
+<pre><code>import glob
+osx_install = glob.glob(&quot;/Applications/&quot; \
+    &quot;Install*OS X*.app&quot;)
+print(osx_install)
+[&#39;/Applications/Install Mac OS X Lion.app&#39;,
+ &#39;/Applications/Install OS X Mountain
+Lion.app&#39;]</code></pre>
+<aside class="notes">
+<ul>
+<li>Equivalent to shell globbing</li>
+<li>Returns matching path(s) as a list</li>
+<li>glob uses the fnmatch module</li>
+</ul>
+</aside>
+</section>
+<section id="pyobjc" class="slide level3">
+<h3>PyObjC</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> AppKit <span class="im">import</span> NSScreen
+
+width <span class="op">=</span> NSScreen.mainScreen().frame().size.width
+height <span class="op">=</span> NSScreen.mainScreen().frame().size.height
+
+<span class="bu">print</span> height, width
+<span class="fl">900.0</span> <span class="fl">1440.0</span></code></pre></div>
+<aside class="notes">
+<p>PyObjC is a bridge between Python and Objective-C that allows you to do some powerful things in Python without running any other software.</p>
+</aside>
+</section>
+<section id="section-15" class="slide level3">
+<h3></h3>
+<h4 id="read-a-preference">Read a preference</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> CoreFoundation <span class="im">import</span> CFPreferencesCopyValue, <span class="op">\</span>
+  kCFPreferencesCurrentUser, kCFPreferencesAnyHost
+
+v <span class="op">=</span> CFPreferencesCopyValue(<span class="st">&#39;NSNavLastRootDirectory&#39;</span>, <span class="st">&#39;com.apple.Finder&#39;</span>, <span class="op">\</span>
+  kCFPreferencesCurrentUser, kCFPreferencesAnyHost)
+<span class="bu">print</span>(v)</code></pre></div>
+<h4 id="write-a-preference-value">Write a preference value</h4>
+<pre><code>CFPreferencesSetValue(&#39;FXConnectToLastURL&#39;, &#39;smb://example.com&#39;, &#39;com.apple.Finder&#39;, \
+  kCFPreferencesCurrentUser, kCFPreferencesAnyHost)
+
+# Required to force preferences to sync to .plist on disk
+CFPreferencesSynchronize(&#39;com.apple.Finder&#39;, kCFPreferencesCurrentUser, 
+  kCFPreferencesAnyHost)</code></pre>
+<aside class="notes">
+<p>Here's a much more complex example from my co-presenter, Mosen.</p>
+</aside>
+</section>
 <section id="talking-to-the-jss" class="slide level3">
 <h3>Talking To The JSS</h3>
 <p><code>pip install python-jss</code></p>
 <p>Then create preferences using <code>default</code>.</p>
 <aside class="notes">
-<p>First we install the python-jss module, which talks to the JSS. Then we create a preferences file by using <code>default</code>.</p>
+<p>First we install the python-jss module, which talks to the JSS. Then we create a preferences file by using <code>default</code>. You will find the commands in <code>jss.txt</code> and the password is *****</p>
 </aside>
 </section>
-<section id="section-20" class="slide level3">
+<section id="section-16" class="slide level3">
 <h3></h3>
 <p>First we get our JSS object</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> jss
@@ -680,20 +704,20 @@ j <span class="op">=</span> jss.JSS(jss_prefs)</code></pre></div>
 <p>We start by importing the module then passing the preferences to a function that creates a JSS object.</p>
 </aside>
 </section>
-<section id="section-21" class="slide level3">
+<section id="section-17" class="slide level3">
 <h3></h3>
 <p>Get the computer list</p>
 <pre><code>j.Computer()</code></pre>
 <p>Notice that python-jss pretty prints the list. Note also that it doesn't retrieve all the information, just the name and id.</p>
 </section>
-<section id="section-22" class="slide level3">
+<section id="section-18" class="slide level3">
 <h3></h3>
 <p>Put the result in a variable and format it yourself.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">computers <span class="op">=</span> j.Computer()
 <span class="cf">for</span> i <span class="kw">in</span> computers:
     <span class="bu">print</span> <span class="st">&quot;id:&quot;</span><span class="op">+</span><span class="bu">str</span>(i.<span class="bu">id</span>)<span class="op">+</span><span class="st">&quot; name:&quot;</span><span class="op">+</span>i.name</code></pre></div>
 </section>
-<section id="section-23" class="slide level3">
+<section id="section-19" class="slide level3">
 <h3></h3>
 <p>Now get the record of one computer. This will get <strong>all</strong> the record.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">example <span class="op">=</span> j.Computer(<span class="dv">193</span>)
@@ -701,13 +725,13 @@ example</code></pre></div>
 <p>We can view that with <code>less</code> using the <code>page</code> magic.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">page example</code></pre></div>
 </section>
-<section id="section-24" class="slide level3">
+<section id="section-20" class="slide level3">
 <h3></h3>
 <p>Some information is easily retrieved</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">example.serial_number
 example.mac_addresses</code></pre></div>
 </section>
-<section id="section-25" class="slide level3">
+<section id="section-21" class="slide level3">
 <h3></h3>
 <p>Other information requires some XML work. XML is a tree of nodes and we have to work with those nodes. python-jss uses the ElementTree module.</p>
 <p>Let's get a list of installed applications. <code>findall()</code> will return a list of nodes that match our search string. <code>find()</code> returns a single child node that matches.</p>
@@ -718,7 +742,7 @@ example.mac_addresses</code></pre></div>
     path <span class="op">=</span> i.find(<span class="st">&#39;path&#39;</span>)
     <span class="bu">print</span> nm.text, ver.text, path.text</code></pre></div>
 </section>
-<section id="section-26" class="slide level3">
+<section id="section-22" class="slide level3">
 <h3></h3>
 <p>Rather than print it let's gather the info.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">o <span class="op">=</span> []
@@ -749,6 +773,7 @@ os[<span class="dv">0</span>].text</code></pre></div>
 <ul>
 <li><a href="http://www.diveintopython.net">Dive Into Python</a> - A good tutorial for experience programmers</li>
 <li><a href="http://www.linuxjournal.com/article/3946">Python Programming For Beginners</a> - Good tutorial for writing command line tools.</li>
+<li><a href="https://pythonhosted.org/pyobjc/">PyObjC home page</a></li>
 <li><a href="https://github.com/sheagcraig/python-jss">python-jss</a> - python-jss home page on github</li>
 <li><a href="https://docs.python.org/2/library/xml.etree.elementtree.html">ElementTree</a> - ElementTree at python docs</li>
 <li><a href="http://effbot.org/zone/element-index.htm">ElementTree overview</a> - ElementTree tutorial</li>
@@ -768,7 +793,7 @@ os[<span class="dv">0</span>].text</code></pre></div>
         // Parallax background image
         parallaxBackgroundImage: 'XW16-Empty.jpg', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
         // Parallax background size
-        parallaxBackgroundSize: '1440px 900px', // CSS syntax, e.g. "2100px 900px"
+        parallaxBackgroundSize: '1920px 1080px', // CSS syntax, e.g. "2100px 900px"
 
         // Optional reveal.js plugins
         dependencies: [
