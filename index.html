@@ -311,7 +311,7 @@ Traceback (most recent call last):
 <section id="lists" class="slide level3">
 <h3>Lists</h3>
 <ul>
-<li>Surrounded by &quot;<a href="#/section-22"></a>&quot;</li>
+<li>Surrounded by &quot;<a href="#/section-23"></a>&quot;</li>
 <li>Ordered</li>
 <li>Indexed at 0</li>
 <li>Can contain any type or mixed types</li>
@@ -569,6 +569,24 @@ u</code></pre></div>
 <p>Here's our list wrapped in quotes again, this time using a list comprehension</p>
 </aside>
 </section>
+<section id="standard-libraries" class="slide level3">
+<h3>Standard Libraries</h3>
+<ul>
+<li>re - regular expressions</li>
+<li>datetime, calendar &amp; time - time &amp; date functionality</li>
+<li>random - for non-secure randomness</li>
+<li>sys - system specific functionality, specifically access to command line args, python path &amp; exit</li>
+</ul>
+<h4 id="file-apis">File APIs</h4>
+<p>These parts of the standard library allow you to interact with files &amp; the file system.</p>
+<ul>
+<li>os - provides basics like open, mkdir, stat, rmdir, remove and walk</li>
+<li>os.path - everything needed for path manipulation, including join, dirname, basename &amp; exists</li>
+<li>tempfile - create temporary files &amp; directories</li>
+<li>glob - unix style pattern matching (i.e. *.gif)</li>
+<li>shutil - high level file ops like copy, move, copytree and rmtree (you can lose metadata)</li>
+</ul>
+</section>
 <section id="running-commands" class="slide level3">
 <h3>Running Commands</h3>
 <h4 id="subprocess-module">Subprocess module</h4>
@@ -630,6 +648,9 @@ os.path.dirname(silverlight_plugin_path)
 &#39;/Library/Internet Plug-Ins&#39;
 os.path.splitext(&quot;com.apple.Safari.plist&quot;)
 (&#39;com.apple.Safari&#39;, &#39;.plist&#39;)</code></pre>
+</section>
+<section id="section-15" class="slide level3">
+<h3></h3>
 <h4 id="tests-on-files">Tests on Files</h4>
 <pre><code>os.path.exists(silverlight_plugin_path)
 True
@@ -666,7 +687,7 @@ height <span class="op">=</span> NSScreen.mainScreen().frame().size.height
 <p>PyObjC is a bridge between Python and Objective-C that allows you to do some powerful things in Python without running any other software.</p>
 </aside>
 </section>
-<section id="section-15" class="slide level3">
+<section id="section-16" class="slide level3">
 <h3></h3>
 <h4 id="read-a-preference">Read a preference</h4>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> CoreFoundation <span class="im">import</span> CFPreferencesCopyValue, <span class="op">\</span>
@@ -694,7 +715,7 @@ CFPreferencesSynchronize(&#39;com.apple.Finder&#39;, kCFPreferencesCurrentUser,
 <p>First we install the python-jss module, which talks to the JSS. Then we create a preferences file by using <code>default</code>. You will find the commands in <code>jss.txt</code> and the password is *****</p>
 </aside>
 </section>
-<section id="section-16" class="slide level3">
+<section id="section-17" class="slide level3">
 <h3></h3>
 <p>First we get our JSS object</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> jss
@@ -704,20 +725,20 @@ j <span class="op">=</span> jss.JSS(jss_prefs)</code></pre></div>
 <p>We start by importing the module then passing the preferences to a function that creates a JSS object.</p>
 </aside>
 </section>
-<section id="section-17" class="slide level3">
+<section id="section-18" class="slide level3">
 <h3></h3>
 <p>Get the computer list</p>
 <pre><code>j.Computer()</code></pre>
 <p>Notice that python-jss pretty prints the list. Note also that it doesn't retrieve all the information, just the name and id.</p>
 </section>
-<section id="section-18" class="slide level3">
+<section id="section-19" class="slide level3">
 <h3></h3>
 <p>Put the result in a variable and format it yourself.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">computers <span class="op">=</span> j.Computer()
 <span class="cf">for</span> i <span class="kw">in</span> computers:
     <span class="bu">print</span> <span class="st">&quot;id:&quot;</span><span class="op">+</span><span class="bu">str</span>(i.<span class="bu">id</span>)<span class="op">+</span><span class="st">&quot; name:&quot;</span><span class="op">+</span>i.name</code></pre></div>
 </section>
-<section id="section-19" class="slide level3">
+<section id="section-20" class="slide level3">
 <h3></h3>
 <p>Now get the record of one computer. This will get <strong>all</strong> the record.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">example <span class="op">=</span> j.Computer(<span class="dv">193</span>)
@@ -725,13 +746,13 @@ example</code></pre></div>
 <p>We can view that with <code>less</code> using the <code>page</code> magic.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">page example</code></pre></div>
 </section>
-<section id="section-20" class="slide level3">
+<section id="section-21" class="slide level3">
 <h3></h3>
 <p>Some information is easily retrieved</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">example.serial_number
 example.mac_addresses</code></pre></div>
 </section>
-<section id="section-21" class="slide level3">
+<section id="section-22" class="slide level3">
 <h3></h3>
 <p>Other information requires some XML work. XML is a tree of nodes and we have to work with those nodes. python-jss uses the ElementTree module.</p>
 <p>Let's get a list of installed applications. <code>findall()</code> will return a list of nodes that match our search string. <code>find()</code> returns a single child node that matches.</p>
@@ -742,7 +763,7 @@ example.mac_addresses</code></pre></div>
     path <span class="op">=</span> i.find(<span class="st">&#39;path&#39;</span>)
     <span class="bu">print</span> nm.text, ver.text, path.text</code></pre></div>
 </section>
-<section id="section-22" class="slide level3">
+<section id="section-23" class="slide level3">
 <h3></h3>
 <p>Rather than print it let's gather the info.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">o <span class="op">=</span> []
