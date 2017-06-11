@@ -229,7 +229,8 @@ At this point let's move on to a better Python interpreter - IPython.
 | ipython --help     | IPython man page                                  |
 
 <div class="notes">
-
+IPython has sort of been renamed Jupyter, so we use the jupyter name for
+some functions.
 </div>
 
 
@@ -348,7 +349,8 @@ for x in range(1,11):
 ```
 
 <div class="notes">
-A "while" loop will loop until a condition becomes false. A "for" loop
+A "while" loop will loop until a condition becomes false. A "for" loop loops
+across a range of values.
 </div>
 
 ###
@@ -646,6 +648,12 @@ These parts of the standard library allow you to interact with files & the file 
 - glob - unix style pattern matching (i.e. *.gif)
 - shutil - high level file ops like copy, move, copytree and rmtree (you can lose metadata)
 
+<div class="notes">
+One of the slogans of Python is "Batteries Included" which is a tip of the hat to
+the large built in libraries and the number available. Here are some of the most
+important ones for us.
+</div>
+
 ### Running Commands
 
 #### Subprocess module
@@ -705,6 +713,10 @@ os.path.dirname(silverlight_plugin_path)
 os.path.splitext("com.apple.Safari.plist")
 ('com.apple.Safari', '.plist')
 ```
+
+<div class="notes">
+Let's have a look at using the `os` library on paths and files.
+</div>
 
 ###
 
