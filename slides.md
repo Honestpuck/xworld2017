@@ -113,13 +113,16 @@ Usage: thingy [OPTIONS]
      -h                        Display this usage message
      -H hostname               Hostname to connect to
 """)
-```	 
+```
+
 produces the following output (note that the initial newline is not included):
+
 ```
 Usage: thingy [OPTIONS]
      -h                        Display this usage message
      -H hostname               Hostname to connect to
 ```
+
 <div class="notes">
 You will often see string literals enclosed in triple quotes at the top
 of function definitions. These are called "docstrings"  and are used to
@@ -190,6 +193,11 @@ ustring = u'1024 \u00D7 768'
 print ustring
 ```
 
+<div class="notes">
+Putting `u` in front of the string tells Python 2 that it is a unicode string.
+You can see that we use `\u` and 4 hex digits to enter a special unicode character.
+</div>
+
 #### Booleans
 
 `True` is `1` or `1.0` and everything else is `False`.
@@ -216,10 +224,14 @@ At this point let's move on to a better Python interpreter - IPython.
 | command	         | description                                       |
 |:-------------------|:--------------------------------------------------| 
 | ipython            | run IPython                                       |
-| ipython qtconsole  | runs ipython in QT window                         |
-| ipython notebook   | runs the IPython notebook server                  |
+| jupyter qtconsole  | runs ipython in QT window                         |
+| jupyter notebook   | runs the IPython notebook server                  |
 | ipython --help     | IPython man page                                  |
-| ipython --help-all | IPython man page with *all* command line options. |
+
+<div class="notes">
+
+</div>
+
 
 ###
 

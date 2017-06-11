@@ -1,6 +1,6 @@
-# xworld2016
+# xworld2017
 
-A repo for my workshop at X World 2016 "Bash For Beginners"
+A repo for my workshop at X World 2017 "Charming The Snake"
 
 It contains a bunch of example scripts and the Markdown source and
 reveal.js slideshow for the presentation.
@@ -27,19 +27,19 @@ but saves out the PDF fine.)
 The `slides_notes.pdf` file is generated using `Marked 2` and 
 `Export as, Save PDF`.
 
-| File                 | Description                                |
-| -------------------- | ------------------------------------------ |
-| Input-Font.zip       | The Input font - my favourite for Terminal |
-| PYTHONPATH.txt       | Line to add to bash profile for PYTHON |
-| README.md            | This file |
-| XW16-Empty.jpg       | Background for slides |
-| index.html           | The presentation slides |
-| jss.txt              | Commands to create preferences for python-jss |
+| File                 | Description                                     |
+| -------------------- | ----------------------------------------------- |
+| Input-Font.zip       | The Input font - my favourite for Terminal      |
+| PYTHONPATH.txt       | Line to add to bash profile for PYTHON          |
+| README.md            | This file                                       |
+| XW17-Empty.png       | Background for slides                           |
+| index.html           | The presentation slides                         |
+| jss.txt              | Commands to create preferences for python-jss   |
 | pandoc.sh            | command line to run Pandoc and create slideshow |
-| pandoc-print.sh      | command line to create `print.html` |
-| print.html           | special edition of slides without background for creating PDF |
-| reveal.js/*          | Slideshow software |
-| slides.md            | The Markdown source for the slides |
-| slides.pdf           | a PDF of the presentation slides |
-| slides_notes.pdf     | a PDF of the slides and my notes |
-| solarized.zip        | My favourite theme for Terminal |
+| pandoc-print.sh      | command line to create `print.html`             |
+| print.html           | special edition of slides for creating PDF      |
+| reveal.js/*          | Slideshow software                              |
+| slides.md            | The Markdown source for the slides              |
+| slides.pdf           | a PDF of the presentation slides                |
+| slides_notes.pdf     | a PDF of the slides and my notes                |
+| solarized.zip        | My favourite theme for Terminal                 |
