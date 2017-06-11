@@ -201,6 +201,9 @@ Traceback (most recent call last):
 <p>Python 2.x supports Unicode but you have to tell it a string <em>is</em> Unicode</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ustring <span class="op">=</span> <span class="st">u&#39;1024 </span><span class="ch">\u00D7</span><span class="st"> 768&#39;</span>
 <span class="bu">print</span> ustring</code></pre></div>
+<aside class="notes">
+<p>Putting <code>u</code> in front of the string tells Python 2 that it is a unicode string. You can see that we use <code>\u</code> and 4 hex digits to enter a special unicode character.</p>
+</aside>
 <h4 id="booleans">Booleans</h4>
 <p><code>True</code> is <code>1</code> or <code>1.0</code> and everything else is <code>False</code>.</p>
 <table>
@@ -260,23 +263,22 @@ Traceback (most recent call last):
 <td style="text-align: left;">run IPython</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ipython qtconsole</td>
+<td style="text-align: left;">jupyter qtconsole</td>
 <td style="text-align: left;">runs ipython in QT window</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ipython notebook</td>
+<td style="text-align: left;">jupyter notebook</td>
 <td style="text-align: left;">runs the IPython notebook server</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ipython --help</td>
 <td style="text-align: left;">IPython man page</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">ipython --help-all</td>
-<td style="text-align: left;">IPython man page with <em>all</em> command line options.</td>
-</tr>
 </tbody>
 </table>
+<aside class="notes">
+<p>IPython has sort of been renamed Jupyter, so we use the jupyter name for some functions.</p>
+</aside>
 </section>
 <section id="section-5" class="slide level3">
 <h3></h3>
@@ -384,7 +386,7 @@ lst[<span class="op">-</span><span class="dv">3</span>:]</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>):
     <span class="bu">print</span> x</code></pre></div>
 <aside class="notes">
-<p>A &quot;while&quot; loop will loop until a condition becomes false. A &quot;for&quot; loop</p>
+<p>A &quot;while&quot; loop will loop until a condition becomes false. A &quot;for&quot; loop loops across a range of values.</p>
 </aside>
 </section>
 <section id="section-6" class="slide level3">
@@ -586,6 +588,9 @@ u</code></pre></div>
 <li>glob - unix style pattern matching (i.e. *.gif)</li>
 <li>shutil - high level file ops like copy, move, copytree and rmtree (you can lose metadata)</li>
 </ul>
+<aside class="notes">
+<p>One of the slogans of Python is &quot;Batteries Included&quot; which is a tip of the hat to the large built in libraries and the number available. Here are some of the most important ones for us.</p>
+</aside>
 </section>
 <section id="running-commands" class="slide level3">
 <h3>Running Commands</h3>
@@ -648,6 +653,9 @@ os.path.dirname(silverlight_plugin_path)
 &#39;/Library/Internet Plug-Ins&#39;
 os.path.splitext(&quot;com.apple.Safari.plist&quot;)
 (&#39;com.apple.Safari&#39;, &#39;.plist&#39;)</code></pre>
+<aside class="notes">
+<p>Let's have a look at using the <code>os</code> library on paths and files.</p>
+</aside>
 </section>
 <section id="section-15" class="slide level3">
 <h3></h3>
