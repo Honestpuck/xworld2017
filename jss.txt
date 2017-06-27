@@ -1,3 +1,0 @@
-defaults write ~/Library/Preferences/com.github.sheagcraig.python-jss.plist jss_user honestpuck
-defaults write ~/Library/Preferences/com.github.sheagcraig.python-jss.plist jss_pass <password>
-defaults write ~/Library/Preferences/com.github.sheagcraig.python-jss.plist jss_url  https://honestpuck.jamfcloud.com/
