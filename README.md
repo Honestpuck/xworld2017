@@ -29,7 +29,7 @@ The `slides_notes.pdf` file is generated using `Marked 2` and
 
 | File                 | Description                                     |
 | -------------------- | ----------------------------------------------- |
-| Input-Font.zip       | The Input font - my favourite for Terminal      |
+| Input-Font.zip       | The Input font - used in presentation      |
 | PYTHONPATH.txt       | Line to add to bash profile for PYTHON          |
 | README.md            | This file                                       |
 | XW17-Empty.png       | Background for slides                           |
