@@ -33,6 +33,7 @@ The `slides_notes.pdf` file is generated using `Marked 2` and
 | PYTHONPATH.txt       | Line to add to bash profile for PYTHON          |
 | README.md            | This file                                       |
 | XW17-Empty.png       | Background for slides                           |
+| animals/*            | A small example program in Python               |
 | index.html           | The presentation slides                         |
 | pandoc.sh            | command line to run Pandoc and create slideshow |
 | pandoc-print.sh      | command line to create `print.html`             |
