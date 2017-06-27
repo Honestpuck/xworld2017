@@ -29,12 +29,11 @@ The `slides_notes.pdf` file is generated using `Marked 2` and
 
 | File                 | Description                                     |
 | -------------------- | ----------------------------------------------- |
-| Input-Font.zip       | The Input font - used in presentation      |
+| Input-Font.zip       | The Input font - used in presentation           |
 | PYTHONPATH.txt       | Line to add to bash profile for PYTHON          |
 | README.md            | This file                                       |
 | XW17-Empty.png       | Background for slides                           |
 | index.html           | The presentation slides                         |
-| jss.txt              | Commands to create preferences for python-jss   |
 | pandoc.sh            | command line to run Pandoc and create slideshow |
 | pandoc-print.sh      | command line to create `print.html`             |
 | print.html           | special edition of slides for creating PDF      |

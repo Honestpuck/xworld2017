@@ -68,6 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h4 id="charming-the-snake-python-for-system-admins">Charming The Snake <br/> Python For System Admins</h4>
 <h5 id="tony-williams-systems-engineer">Tony Williams <br/> Systems Engineer</h5>
+<p>Please download http://bit.ly/xw_17</p>
 </section>
 <section id="what-we-will-talk-about" class="slide level3">
 <h3>What We Will Talk About</h3>
@@ -81,7 +82,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>System Administration
 <ul>
 <li>More Python</li>
-<li>Talking to JSS</li>
+<li>An example program</li>
 </ul></li>
 </ul>
 </section>
@@ -313,7 +314,7 @@ Traceback (most recent call last):
 <section id="lists" class="slide level3">
 <h3>Lists</h3>
 <ul>
-<li>Surrounded by &quot;<a href="#/section-23"></a>&quot;</li>
+<li>Surrounded by &quot;<a href="#/section-16"></a>&quot;</li>
 <li>Ordered</li>
 <li>Indexed at 0</li>
 <li>Can contain any type or mixed types</li>
@@ -371,7 +372,7 @@ lst[<span class="op">-</span><span class="dv">3</span>:]</code></pre></div>
     <span class="bu">print</span> <span class="st">&quot;Biggest&quot;</span>
 <span class="cf">elif</span> num <span class="op">&gt;</span> <span class="dv">3</span>:
     <span class="bu">print</span> <span class="st">&quot;Big&quot;</span>
-<span class="cf">else</span>
+<span class="cf">else</span>:
     <span class="bu">print</span> <span class="st">&quot;Small&quot;</span></code></pre></div>
 <aside class="notes">
 <p>Just as you might have seen in <code>bash</code> Python has an 'if' statement. Now indentation is meaningful in Python, see the indentation rather than the <code>do</code> and <code>done</code> you would see in Bash. Also notice the colon character.</p>
@@ -453,11 +454,7 @@ Out[<span class="dv">5</span>]:
 [<span class="st">&#39;total 22888&#39;</span>,
  <span class="st">&#39;-rw-r--r--@  1 tonyw  staff  10129637 26 May 19:45 Input-Font.zip&#39;</span>,
  <span class="st">&#39;-rw-r--r--@  1 tonyw  staff      1901 29 May 09:04 README.md&#39;</span>,
- <span class="st">&#39;-rw-r--r--@  1 tonyw  staff     53078 27 Apr 10:17 XW16-Empty.jpg&#39;</span>,
- <span class="st">&#39;-rw-r--r--@  1 tonyw  staff    332729 27 Apr 09:01 XW16-Empty.pxm&#39;</span>,
- <span class="st">&#39;-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_1.txt&#39;</span>,
- <span class="st">&#39;-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_2.txt&#39;</span>,
- <span class="st">&#39;-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_3.txt&#39;</span>,
+ <span class="st">&#39;-rw-r--r--@  1 tonyw  staff     53078 27 Apr 10:17 XW17-Empty.jpg&#39;</span>,
  <span class="st">&#39;-rw-r--r--@  1 tonyw  staff     38783 26 May 19:29 index.html&#39;</span>,
  <span class="st">&#39;-rwxr-xr-x@  1 tonyw  staff       369 26 May 19:36 pandoc-print.sh&#39;</span>,
  <span class="st">&#39;-rwxr-xr-x@  1 tonyw  staff       302 26 May 19:37 pandoc.sh&#39;</span>,
@@ -542,7 +539,7 @@ utils.n
 utils.s</code></pre></div>
 <p>What's the problem with <code>utils.s</code>?</p>
 <aside class="notes">
-<p>The problem we see here us that when there is a space in a file name it isn't treated properly by the 's' fucnction - it should be wrapped in quotes.</p>
+<p>The problem we see here us that when there is a space in a file name it isn't treated properly by the 's' function - it should be wrapped in quotes.</p>
 </aside>
 </section>
 <section id="fixing-the-spaces" class="slide level3">
@@ -715,97 +712,16 @@ CFPreferencesSynchronize(&#39;com.apple.Finder&#39;, kCFPreferencesCurrentUser,
 <p>Here's a much more complex example from my co-presenter, Mosen.</p>
 </aside>
 </section>
-<section id="talking-to-the-jss" class="slide level3">
-<h3>Talking To The JSS</h3>
-<p><code>pip install python-jss</code></p>
-<p>Then create preferences using <code>default</code>.</p>
-<aside class="notes">
-<p>First we install the python-jss module, which talks to the JSS. Then we create a preferences file by using <code>default</code>. You will find the commands in <code>jss.txt</code> and the password is *****</p>
-</aside>
-</section>
-<section id="section-17" class="slide level3">
-<h3></h3>
-<p>First we get our JSS object</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> jss
-jss_prefs <span class="op">=</span> jss.JSSPrefs()
-j <span class="op">=</span> jss.JSS(jss_prefs)</code></pre></div>
-<aside class="notes">
-<p>We start by importing the module then passing the preferences to a function that creates a JSS object.</p>
-</aside>
-</section>
-<section id="section-18" class="slide level3">
-<h3></h3>
-<p>Get the computer list</p>
-<pre><code>j.Computer()</code></pre>
-<p>Notice that python-jss pretty prints the list. Note also that it doesn't retrieve all the information, just the name and id.</p>
-</section>
-<section id="section-19" class="slide level3">
-<h3></h3>
-<p>Put the result in a variable and format it yourself.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">computers <span class="op">=</span> j.Computer()
-<span class="cf">for</span> i <span class="kw">in</span> computers:
-    <span class="bu">print</span> <span class="st">&quot;id:&quot;</span><span class="op">+</span><span class="bu">str</span>(i.<span class="bu">id</span>)<span class="op">+</span><span class="st">&quot; name:&quot;</span><span class="op">+</span>i.name</code></pre></div>
-</section>
-<section id="section-20" class="slide level3">
-<h3></h3>
-<p>Now get the record of one computer. This will get <strong>all</strong> the record.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">example <span class="op">=</span> j.Computer(<span class="dv">193</span>)
-example</code></pre></div>
-<p>We can view that with <code>less</code> using the <code>page</code> magic.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">page example</code></pre></div>
-</section>
-<section id="section-21" class="slide level3">
-<h3></h3>
-<p>Some information is easily retrieved</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">example.serial_number
-example.mac_addresses</code></pre></div>
-</section>
-<section id="section-22" class="slide level3">
-<h3></h3>
-<p>Other information requires some XML work. XML is a tree of nodes and we have to work with those nodes. python-jss uses the ElementTree module.</p>
-<p>Let's get a list of installed applications. <code>findall()</code> will return a list of nodes that match our search string. <code>find()</code> returns a single child node that matches.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> example.findall(<span class="st">&#39;.//application&#39;</span>)
-<span class="cf">for</span> i <span class="kw">in</span> x:
-    nm <span class="op">=</span> i.find(<span class="st">&#39;name&#39;</span>)
-    ver <span class="op">=</span> i.find(<span class="st">&#39;version&#39;</span>)
-    path <span class="op">=</span> i.find(<span class="st">&#39;path&#39;</span>)
-    <span class="bu">print</span> nm.text, ver.text, path.text</code></pre></div>
-</section>
-<section id="section-23" class="slide level3">
-<h3></h3>
-<p>Rather than print it let's gather the info.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">o <span class="op">=</span> []
-<span class="cf">for</span> i <span class="kw">in</span> x:
-    nm <span class="op">=</span> i.find(<span class="st">&#39;name&#39;</span>)
-    ver <span class="op">=</span> i.find(<span class="st">&#39;version&#39;</span>)
-    path <span class="op">=</span> i.find(<span class="st">&#39;path&#39;</span>)
-    o.append(<span class="st">&#39; &#39;</span>.join([nm.text, ver.text, path.text]))
-o</code></pre></div>
-</section>
-<section id="further-examples" class="slide level3">
-<h3>Further examples</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">model <span class="op">=</span> comp.findall(<span class="st">&#39;.//hardware/model_identifier&#39;</span>)
-model[<span class="dv">0</span>].text
-os <span class="op">=</span> comp.findall(<span class="st">&#39;.//os_version&#39;</span>)
-os[<span class="dv">0</span>].text</code></pre></div>
-<p>Lets get <em>all</em> the computer records. (<em>This might take a while on your JSS.</em>)</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">all_computers <span class="op">=</span> j.Computer().retrieve_all()</code></pre></div>
-<p>Now iterate over them</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> computer <span class="kw">in</span> all_computers:
-    name <span class="op">=</span> computer.findtext(<span class="st">&#39;name&#39;</span>)
-    model <span class="op">=</span> computer.findtext(<span class="st">&#39;model&#39;</span>)
-    os <span class="op">=</span> computer.findtext(<span class="st">&#39;os_version&#39;</span>)
-    <span class="bu">print</span> name <span class="st">&quot;:&quot;</span> model <span class="st">&quot;:&quot;</span> os </code></pre></div>
+<section id="an-example-program" class="slide level3">
+<h3>An Example program</h3>
+<p><code>animals.py</code></p>
 </section>
 <section id="further-places" class="slide level3">
 <h3>Further Places</h3>
 <ul>
-<li><a href="http://www.diveintopython.net">Dive Into Python</a> - A good tutorial for experience programmers</li>
+<li><a href="http://www.diveintopython.net">Dive Into Python</a> - A good tutorial for experienced programmers</li>
 <li><a href="http://www.linuxjournal.com/article/3946">Python Programming For Beginners</a> - Good tutorial for writing command line tools.</li>
 <li><a href="https://pythonhosted.org/pyobjc/">PyObjC home page</a></li>
-<li><a href="https://github.com/sheagcraig/python-jss">python-jss</a> - python-jss home page on github</li>
-<li><a href="https://docs.python.org/2/library/xml.etree.elementtree.html">ElementTree</a> - ElementTree at python docs</li>
-<li><a href="http://effbot.org/zone/element-index.htm">ElementTree overview</a> - ElementTree tutorial</li>
 </ul>
 </section>
     </div>

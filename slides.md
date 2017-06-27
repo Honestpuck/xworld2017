@@ -1,6 +1,9 @@
 #### Charming The Snake <br/> Python For System Admins
 ##### Tony Williams <br/> Systems Engineer
 
+Please download http://bit.ly/xw_17
+
+
 ### What We Will Talk About
 
 * A short introduction to Python
@@ -9,7 +12,7 @@
 	* IPython for coding
 * System Administration
 	* More Python
-	* Talking to JSS
+	* An example program
 
 ### Python as a calculator
 
@@ -324,7 +327,7 @@ if num > 3:
 	print "Biggest"
 elif num > 3:
 	print "Big"
-else
+else:
 	print "Small"
 ```
 
@@ -465,11 +468,7 @@ Out[5]:
 ['total 22888',
  '-rw-r--r--@  1 tonyw  staff  10129637 26 May 19:45 Input-Font.zip',
  '-rw-r--r--@  1 tonyw  staff      1901 29 May 09:04 README.md',
- '-rw-r--r--@  1 tonyw  staff     53078 27 Apr 10:17 XW16-Empty.jpg',
- '-rw-r--r--@  1 tonyw  staff    332729 27 Apr 09:01 XW16-Empty.pxm',
- '-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_1.txt',
- '-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_2.txt',
- '-rw-r--r--   1 tonyw  staff         1 29 May 09:01 empty_3.txt',
+ '-rw-r--r--@  1 tonyw  staff     53078 27 Apr 10:17 XW17-Empty.jpg',
  '-rw-r--r--@  1 tonyw  staff     38783 26 May 19:29 index.html',
  '-rwxr-xr-x@  1 tonyw  staff       369 26 May 19:36 pandoc-print.sh',
  '-rwxr-xr-x@  1 tonyw  staff       302 26 May 19:37 pandoc.sh',
@@ -584,7 +583,7 @@ What's the problem with `utils.s`?
 
 <div class="notes">
 The problem we see here us that when there is a space in a file name it isn't
-treated properly by the 's' fucnction - it should be wrapped in quotes.
+treated properly by the 's' function - it should be wrapped in quotes.
 </div>
 
 ### Fixing the spaces
@@ -794,144 +793,14 @@ CFPreferencesSynchronize('com.apple.Finder', kCFPreferencesCurrentUser,
 Here's a much more complex example from my co-presenter, Mosen.
 </div>
 
-### Talking To The JSS
+### An Example program
 
-`pip install python-jss`
-
-Then create preferences using `default`.
-
-<div class="notes">
-First we install the python-jss module, which talks to the JSS. Then we
-create a preferences file by using `default`. You will find the commands
-in `jss.txt` and the password is *****
-</div>
-
-###
-
-First we get our JSS object
-
-``` python
-import jss
-jss_prefs = jss.JSSPrefs()
-j = jss.JSS(jss_prefs)
-
-```
-<div class="notes">
-We start by importing the module then passing the preferences to a function
-that creates a JSS object.
-</div>
-
-###
-
-Get the computer list
-
-```
-j.Computer()
-```
-
-Notice that python-jss pretty prints the list. Note also
-that it doesn't retrieve all the information, just the name
-and id.
-
-###
-
-Put the result in a variable and
-format it yourself.
-
-``` python
-computers = j.Computer()
-for i in computers:
-    print "id:"+str(i.id)+" name:"+i.name
-```
-
-###
-
-Now get the record of one computer. This will get **all** the record.
-
-``` python
-example = j.Computer(193)
-example
-```
-
-We can view that with `less` using the `page` magic.
-
-``` python
-page example
-```
-
-###
-
-Some information is easily retrieved
-
-``` python
-example.serial_number
-example.mac_addresses
-```
-
-###
-
-Other information requires some XML work. XML is a tree of nodes and
-we have to work with those nodes. python-jss uses the ElementTree module.
- 
-Let's get a list of installed applications. `findall()` will return a list
-of nodes that match our search string. `find()` returns a single child node that
-matches.
-
-``` python
-x = example.findall('.//application')
-for i in x:
-    nm = i.find('name')
-    ver = i.find('version')
-    path = i.find('path')
-    print nm.text, ver.text, path.text
-```
-
-###
-
-Rather than print it let's gather the info.
-
-``` python
-o = []
-for i in x:
-    nm = i.find('name')
-    ver = i.find('version')
-    path = i.find('path')
-    o.append(' '.join([nm.text, ver.text, path.text]))
-o
-```
-
-### Further examples
-
-``` python
-model = comp.findall('.//hardware/model_identifier')
-model[0].text
-os = comp.findall('.//os_version')
-os[0].text
-```
-
-Lets get *all* the computer records. (_This might take a while on your JSS._)
-
-``` python
-all_computers = j.Computer().retrieve_all()
-```
-
-Now iterate over them 
-
-``` python
-for computer in all_computers:
-	name = computer.findtext('name')
-    model = computer.findtext('model')
-    os = computer.findtext('os_version')
-    print name ":" model ":" os 
-```
+`animals.py`
 
 ### Further Places
 
-- [Dive Into Python](http://www.diveintopython.net) - A good tutorial for experience programmers
+- [Dive Into Python](http://www.diveintopython.net) - A good tutorial for experienced programmers
 - [Python Programming For Beginners](http://www.linuxjournal.com/article/3946) - Good tutorial 
   for writing command line tools.
 - [PyObjC home page](https://pythonhosted.org/pyobjc/)
-- [python-jss](https://github.com/sheagcraig/python-jss) - python-jss home page on github
-- [ElementTree](https://docs.python.org/2/library/xml.etree.elementtree.html) - ElementTree at python docs
-- [ElementTree overview](http://effbot.org/zone/element-index.htm) - ElementTree tutorial
 
