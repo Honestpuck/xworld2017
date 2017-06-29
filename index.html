@@ -370,7 +370,7 @@ lst[<span class="op">-</span><span class="dv">3</span>:]</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">num <span class="op">=</span> <span class="dv">4</span>
 <span class="cf">if</span> num <span class="op">&gt;</span> <span class="dv">3</span>:
     <span class="bu">print</span> <span class="st">&quot;Biggest&quot;</span>
-<span class="cf">elif</span> num <span class="op">&gt;</span> <span class="dv">3</span>:
+<span class="cf">elif</span> num <span class="op">&gt;</span> <span class="dv">2</span>:
     <span class="bu">print</span> <span class="st">&quot;Big&quot;</span>
 <span class="cf">else</span>:
     <span class="bu">print</span> <span class="st">&quot;Small&quot;</span></code></pre></div>
@@ -471,6 +471,9 @@ Out[<span class="dv">5</span>]:
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">lines.p
 lines.n
 lines.s</code></pre></div>
+<aside class="notes">
+<p>The .s property returns one string where lines are separated by single space (for convenient passing to system commands). The .n property return one string where the lines are separated by a newline (i.e. the original output of the function). If the items in string list are file names, .p can be used to get a list of “path” objects for convenient file manipulation.</p>
+</aside>
 </section>
 <section id="section-10" class="slide level3">
 <h3></h3>

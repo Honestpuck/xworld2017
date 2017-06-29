@@ -325,7 +325,7 @@ Now we can have a look at how we control our code.
 num = 4
 if num > 3:
 	print "Biggest"
-elif num > 3:
+elif num > 2:
 	print "Big"
 else:
 	print "Small"
@@ -489,6 +489,14 @@ lines.p
 lines.n
 lines.s
 ```
+
+<div class="notes">
+The .s property returns one string where lines are separated by single space (for 
+convenient passing to system commands). The .n property return one string where the 
+lines are separated by a newline (i.e. the original output of the function). If the 
+items in string list are file names, .p can be used to get a list of “path” objects 
+for convenient file manipulation.
+</div>
 
 ###
 
