@@ -8,7 +8,7 @@ reveal.js slideshow for the presentation.
 The reveal.js slideshow is created using [pandoc](http://pandoc.org).
 The exact pandoc command can be found in `pandoc.sh`. I have modified
 the `white.css` reveal.js template to hopefully increase readability 
-and use my favourite code font.
+and use my favourite code font (Input).
 
 While running the slideshow pressing `S` will open a speaker view where 
 you can read the notes. For other hints visit the 
